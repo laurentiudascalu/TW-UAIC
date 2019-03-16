@@ -190,14 +190,16 @@ footer{
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.intrebareTitlu{
-	line-height: 22px;
+.intrebareTitlu {
+    line-height: 22px;
     color: #991d21;
     font-size: 18px;
     font-weight: 600;
     text-align: left;
     border-bottom: 1px solid #0c120c;
     margin-bottom: 20px;
+    padding-right: 150px;
+    text-overflow: ellipsis;
 }
 .mt20{
 	margin-top: 20px;
