@@ -51,12 +51,15 @@ table {
 *{
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
 }
 body {
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
 	position: relative;
 	padding-bottom: 380px;
 	min-height: 100vh;
+	color:#0c120c;
 }
 .container{
 	margin:0 auto;
@@ -69,9 +72,11 @@ body {
     display: flex;
     justify-content: space-around;
     height: inherit;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px; 
 }
 header{
-	padding-top: 10px;
 	height: 70px;
 	background-color: #fff;
 }
@@ -79,32 +84,30 @@ header img{
 	max-height: 100%;
 	max-width: 100%;	
 }
-.logo a{
-	display: inline-block;
-	height: 50px;
-	margin-bottom: 10px;
+.logo a {
+    display: inline-block;
+    height: 30px;
+    margin-top: 15px;
 }
 .logo {
-    height: inherit;
     width: 140px;
     text-align: center;
 }
 .login {
-    height: inherit;
-    width: 130px;
+    width: 140px;
     text-align: right;
     padding-top: 15px;
 }
 .login a{
 	text-decoration: none;
-	color: #2196F3;
+	color: #35b3d6;
 	font-size: 14px;
 }
 .login button{
 	width: 70px;
     height: 25px;
     background-color: #fff;
-    border: 1px solid #878080;
+    border: 1px solid #0c120c;
     border-radius: 4px;
     margin-right: 5px;
 }
@@ -114,18 +117,44 @@ header img{
     box-shadow: 0px 0px 3px 1px #35b3d6;
 }
 .cauta {
-    height: inherit;
-    width: calc(100% - 270px);
+    width: calc(100% - 280px);
     text-align: center;
     padding-top: 15px;
 }
-.cauta input{
+.cautareSus{
 	width: 50%;
+	margin: 0 auto;
+	position: relative;
 }
+.cautareSus input{
+	width: 100%;
+	padding: 5px;
+	height: 30px;
+	border-radius: 4px;
+	border:1px solid #0c120c;
+}
+.cautareSus button {
+    position: absolute;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #35b3d6;
+    color: #fff;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border: 1px solid #0c120c;
+    border-left: 0px;
+    width: 35px;
+
+}
+
 nav {
     background-color: #19647e;
     position: sticky;
     height: 50px;
+    top:0px;
+    z-index: 2;
+    box-shadow: 0px 3px 10px -2px #242424;
 }
 .meniu {
     display: flex;
@@ -139,9 +168,9 @@ nav {
     text-decoration: none;
     font-size: 18px;
     padding-top: 16px;
+    transition: .3s background-color;
 }
-.meniu a:hover{
-	transition: .3s all;
+.meniu a:hover, .activ{
 	background-color: #35b3d6;
 }
 footer{
@@ -153,4 +182,64 @@ footer{
 }
 .jos{
 	display: flex;
+}
+.intrebare{
+    padding: 15px;
+    box-shadow: 1px 1px 5px 0px #5d5d5d;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.intrebareTitlu{
+	line-height: 22px;
+    color: #991d21;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #0c120c;
+    margin-bottom: 20px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.titluPrimaPagina {
+    color: #0c120c;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 0px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 7px;
+    border-bottom: 1.5px solid #19647e;
+}
+.content{
+	padding-top: 50px;
+}
+.likeDislike {
+    position: absolute;
+    right: 15px;
+    font-size: 17px;
+    top: 10px;
+    display: flex;
+}
+.like{
+	    margin-right: 10px;
+}
+.blackC{
+	color: #0c120c;
+}
+.intrebareTitlu .blackC{
+	font-size: 16px;
+}
+.intrebareHashtaguri {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+.hashtag {
+    background-color: #c9e4e7;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
 }
