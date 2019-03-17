@@ -58,6 +58,18 @@
     border: 1px solid #0c120c;
     padding-left: 5px;
 }
+.input input:hover, .input textarea:hover{
+    border-radius: 4px;
+    transition: .3s all;
+    border: 1px solid #35b3d6;
+    box-shadow: 0px 0px 3px 1px #35b3d6;
+}
+.input input:focus, .input textarea:focus{
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #35b3d6;
+    box-shadow: 0px 0px 3px 1px #35b3d6;
+}
 .submit{
     text-align: left;
     flex: 3;
@@ -75,4 +87,55 @@
     border: 1px solid #35b3d6;
     box-shadow: 0px 0px 3px 1px #35b3d6;
     cursor: pointer;
+}
+.dflex{
+    display: flex;
+}
+.mr30{
+    margin-right: 30px;
+}
+.titluContent{
+    color: #991d21;
+    font-size: 25px;
+    border-bottom: 1px solid #0c120c;
+}
+.titluContent span{
+    margin-bottom: 10px;
+    display: block;
+}
+.meniuCont {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.meniuCont a:hover{
+    background-color:#35b3d6;
+    border: 1px solid #35b3d6;
+    transition: .3s all;
+}
+.meniuCont a {
+    padding-top: 6px;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    margin-right: 20px;
+    text-decoration: none;
+    color: #fff;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #19647e;
+    border: 1px solid #0c120c;
+}
+.width100{
+    width: 100%;
+}
+.input textarea{
+    width: 100%;
+    border-radius: 4px;
+    height: 100px;
+    border: 1px solid #0c120c;
+    padding-left: 5px;
 }
