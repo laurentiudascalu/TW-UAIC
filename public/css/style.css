@@ -171,17 +171,34 @@ nav {
     transition: .3s background-color;
 }
 .meniu a:hover, .activ{
-	background-color: #35b3d6;
+	background-color: #35b3d6 !important;
 }
 footer{
 	position: absolute;
 	bottom: 0;
 	background-color: #0c120c;
-	height: 150px;
+	height: 300px;
 	width: 100%;
 }
 .jos{
 	display: flex;
+}
+.linieJos{
+    width: 100%;
+    height: 30px;
+    background-color: #171717;
+}
+.linkuri{
+	flex: 1;
+	margin-right: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	height: 250px;
+	border-radius: 5px;
+	background-color: #2a2a2a;
+}
+.linkuri:last-child{
+	margin-right: 0px;
 }
 .intrebare{
     padding: 15px;
@@ -211,7 +228,7 @@ footer{
     text-align: left;
     padding-left: 0px;
     line-height: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding-bottom: 7px;
     border-bottom: 1.5px solid #19647e;
 }
@@ -244,4 +261,140 @@ footer{
     padding: 5px;
     border-radius: 5px;
     margin-right: 5px;
+}
+.adaugaIntrebare{
+    background-color: #991d21 !important;
+    margin: 6px;
+    padding-top: 9px !important;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #fff;
+}
+.top{
+	width: 100%;
+    border-radius: 5px;
+    border-collapse: unset;
+    border-spacing: unset;
+}
+.top thead tr{
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.top thead th:first-child{
+	border-top-left-radius: 5px;
+}
+.top thead th:last-child{
+	border-top-right-radius: 5px;
+}
+.top thead th{
+	border-right: 1px solid #fff;
+}
+.top thead th:last-child{
+	border-right: 1px solid #19647e;
+}
+.top thead {
+    background-color: #19647e;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.top td, .top th{
+	padding: 10px;
+}
+.top tbody tr td:first-child{
+	border-left: 1px solid #0c120c;
+}
+.top tbody tr{
+	border-bottom: 1px solid #0c120c;
+}
+.top tbody td{
+	border-right: 1px solid #0c120c;
+	border-bottom: 1px solid #0c120c;
+}
+.top tbody tr:last-child{
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.top tbody tr:last-child td:first-child{
+	border-bottom-left-radius: 5px;
+}
+.top tbody tr:last-child td:last-child{
+	border-bottom-right-radius: 5px;
+}
+.tc{
+	text-align: center;
+}
+.tr{
+	text-align: right;
+}
+.tl{
+	text-align: left;
+}
+.insigne{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+  	grid-row-gap: 10px;
+}
+.insigna {
+    border-radius: 5px;
+    border: 1.5px solid #19647e;
+    display: flex;
+    height: 50px;
+}
+.imagineInsigna {
+    background-color: #19647e;
+    border-top-right-radius: 50%;
+    width: 60px;
+    height: 49px;
+    color: #fff;
+    font-size: 25px;
+    padding-top: 12px;
+    padding-left: 12px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 3px;
+}
+.textInsigna {
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 17px;
+}
+.contentPrimaPagina{
+	display: block;
+	margin-bottom: 100px;
+}
+.titluBoxJos {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+    color: #999;
+}
+.continutBoxJos{
+    display: block;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.continutBoxJos a{
+    display: block;
+    margin-bottom: 7px;
+    color: #cecece;
+}
+.continutBoxJos a:hover{
+	color: #fff;
+}
+.stangaJos{
+	float: left;
+	padding-top: 10px;
+    color: #fff;
+    font-size: 12px
+}
+.dreaptaJos{
+	float: right;
+	padding-top: 10px;
+    color: #fff;
+    font-size: 12px
+}
+.c{
+	clear: both;
 }
