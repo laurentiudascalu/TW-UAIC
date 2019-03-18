@@ -355,6 +355,13 @@ footer{
     border-bottom-left-radius: 4px;
     border-top-left-radius: 3px;
 }
+.gri{
+    border: 1.5px solid #c9e4e7 !important;
+    color: #0000004d;
+}
+.gri .imagineInsigna{
+    background-color: #c9e4e7 !important;
+}
 .textInsigna {
     width: 100%;
     padding-left: 15px;
@@ -379,6 +386,7 @@ footer{
     display: block;
     margin-bottom: 7px;
     color: #cecece;
+    text-decoration: none;
 }
 .continutBoxJos a:hover{
 	color: #fff;

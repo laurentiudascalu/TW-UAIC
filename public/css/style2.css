@@ -13,7 +13,7 @@
 	border: 1px solid #0c120c;
     margin: 0 auto;
     width: 50%;
-    margin-top: 40px;
+    margin-top: 10px;
     border-radius: 4px;
 }
 .formular{
@@ -98,6 +98,7 @@
     color: #991d21;
     font-size: 25px;
     border-bottom: 1px solid #0c120c;
+    margin-bottom: 30px;
 }
 .titluContent span{
     margin-bottom: 10px;
@@ -138,4 +139,7 @@
     height: 100px;
     border: 1px solid #0c120c;
     padding-left: 5px;
+}
+.contentTop{
+    display: block;
 }
