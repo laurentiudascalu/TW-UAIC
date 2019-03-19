@@ -32,9 +32,9 @@
 				<a href="../pages/intrebari.html">Intrebari</a>
 				<a href="../pages/top.html">Top</a>
 				<a href="#statistici">Statistici</a>
-				<a href="#bages">Badges</a>
+				<a href="../pages/insigne.html">Insigne</a>
 				<a href="#rapoarte">Rapoarte</a>
-				<a href="#Profil" class="adaugaIntrebare">+ Adauga intrebare</a>
+				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare activ">+ Adauga intrebare</a>
 			</div>
 		</div>
 	</nav>
@@ -59,7 +59,7 @@
 						<i class="fas fa-user-circle"></i> Completeaza-ti profilul
 					</div>
 					<div class="formular">
-						<form action="">
+						<form action="" id="profilForm">
 							<div class="linieForm">
 								<div class="label">
 									Oras
@@ -73,7 +73,27 @@
 									Judet
 								</div>
 								<div class="input">
-									<input type="text" name="judet" value="Iasi">
+									<select>
+										<option value="Alba">Alba</option>
+										<option value="Arad">Arad</option>
+										<option value="Arges">Bacau</option>
+										<option value="Bihor">Bihor</option>
+										<option value="Botosani">Botosani</option>
+										<option value="Brasov">Brasov</option>
+										<option value="Braila">Braila</option>
+										<option value="Buzau">Buzau</option>
+										<option value="Calarasi">Calarasi</option>
+										<option value="Cluj">Cluj</option>
+										<option value="Constanta">Constanta</option>
+										<option value="Dolj">Dolj</option>
+										<option value="Galati">Galati</option>
+										<option value="Hunedoara">Hunedoara</option>
+										<option value="Iasi" selected="selected">Iasi</option>
+										<option value="Mures">Mures</option>
+										<option value="Olt">Olt</option>
+										<option value="Suceava">Suceava</option>
+										<option value="Timis">Timis</option>
+									</select>
 								</div>
 							</div>
 							<div class="linieForm">
@@ -105,7 +125,7 @@
 									Mancare preferata
 								</div>
 								<div class="input">
-									<input type="text" name="mancarepref" value="Buger">
+									<input type="text" name="mancarepref" value="Burger">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -113,7 +133,18 @@
 									Animal Preferat
 								</div>
 								<div class="input">
-									<input type="text" name="animalpref" value="Cateii">
+									<select class="height140" multiple form="profilForm">
+										<option value="Cainele" selected="selected">Cainele</option>
+										<option value="Pisica">Pisica</option>
+									    <option value="Sarpele">Sarpele</option>
+									    <option value="Hamsterul" selected="selected">Hamsterul</option>
+									    <option value="Leul">Leul</option>
+									    <option value="Tigrul">Tigrul</option>
+									    <option value="Vaca">Vaca</option>
+									    <option value="Porcul">Porcul</option>
+									    <option value="Gaina">Gaina</option>
+									    <option value="Rata">Rata</option>
+									</select>
 								</div>
 							</div>
 							<div class="linieForm">
@@ -154,21 +185,21 @@
  				<div class="linkuri">
  					<div class="titluBoxJos">Link-uri utile</div>
  					<div class="continutBoxJos">
- 						<a href="#test">Home</a>
- 						<a href="#test">Contul tau</a>
- 						<a href="#test">Intrebari</a>
- 						<a href="#test">Top</a>
- 						<a href="#test">Insigne</a>
+ 						<a href="../pages/home.html">Home</a>
+ 						<a href="../pages/contultau.html">Contul tau</a>
+ 						<a href="../pages/intrebari.html">Intrebari</a>
+ 						<a href="../pages/top.html">Top</a>
+ 						<a href="../pages/insigne.html">Insigne</a>
  						<a href="#test">Statistici</a>
  					</div>
  				</div>
  				<div class="linkuri">
  					<div class="titluBoxJos">Despre noi</div>
  					<div class="continutBoxJos">
- 						<a href="#test">Despre</a>
- 						<a href="#test">Inceputuri</a>
- 						<a href="#test">Planuri de viitor</a>
- 						<a href="#test">Task-uri indeplinite</a>
+ 						<a href="../pages/despre.html">Despre</a>
+ 						<a href="../pages/inceputuri.html">Inceputuri</a>
+ 						<a href="../pages/planuriviitor.html">Planuri de viitor</a>
+ 						<a href="../pages/taskindeplinite.html">Task-uri indeplinite</a>
  					</div>
  				</div>
  			</div>
