@@ -73,8 +73,8 @@ body {
     justify-content: space-around;
     height: inherit;
     padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px; 
+    padding-left: 30px;
+    padding-right: 30px; 
 }
 header{
 	height: 70px;
@@ -206,6 +206,7 @@ footer{
     position: relative;
     border-radius: 5px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .intrebareTitlu {
     line-height: 22px;
@@ -217,6 +218,10 @@ footer{
     margin-bottom: 20px;
     padding-right: 150px;
     text-overflow: ellipsis;
+}
+.intrebare:not(.nohover):hover{
+	transition: .3s all;
+    background-color: #f0fdff;
 }
 .mt20{
 	margin-top: 20px;
@@ -322,6 +327,9 @@ footer{
 .top tbody tr:last-child td:last-child{
 	border-bottom-right-radius: 5px;
 }
+.top tbody tr:hover{
+	background-color: #c9e4e7;
+}
 .tc{
 	text-align: center;
 }
@@ -405,4 +413,82 @@ footer{
 }
 .c{
 	clear: both;
+}
+.boxPrimaPagina{
+	position: relative;
+}
+.intrebareTitluPagina{
+	color:#991d21;
+	margin-bottom: 20px;
+}
+.mb20{
+	margin-bottom: 20px;
+}
+.pb50{
+	padding-bottom: 50px;
+}
+.pt30{
+	padding-top: 30px;
+}
+.nohover{
+	cursor: default;
+}
+.redC{
+	color:#991d21;
+}
+.titluRaspuns {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.raspunsCorect{
+	padding-left: 100px;
+}
+.raspunsCorect::before {
+    content: "";
+    background: url(../pics/raspunsCorect.png);
+    position: absolute;
+    left: 13px;
+    top: 25px;
+    width: 74px;
+    height: 50px;
+    background-size: cover;
+}
+.areLike{
+	    padding-right: 150px;
+}
+.intrebareAdmin {
+	font-size: 14px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: #c9e4e7;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.accepta{
+    background-color: #19647e;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.refuza{
+    background-color: #991d21;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.veziInfo{
+    background-color: #0c120c;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
 }
