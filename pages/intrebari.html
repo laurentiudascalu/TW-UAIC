@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<link rel="stylesheet" href="../public/css/style.css" type="text/css">
 	<link rel="stylesheet" href="../public/css/style2.css" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+	<title>Adwise</title>
 </head>
 <body>
 	<header>
 		<div class="container">
 			<div class="sus">
 				<div class="logo">
-					<a href="../pages/home.html"><img src="../public/pics/logo4.png"></a>
+					<a href="../pages/home.html"><img alt="Logo" src="../public/pics/logo4.png"></a>
 				</div>
 				<div class="cauta">
-					<form action="" class="cautareSus">
+					<form action="p" class="cautareSus">
 						<input type="text" placeholder="Search.." name="search">
 						<button><i class="fas fa-search"></i></button>
 					</form>
 				</div>
 				<div class="login">
-					<button><a href="../pages/login.html">Log-in</a></button>
+					<div class="buton"><a href="../pages/login.html">Log-in</a></div>
 					<a href="../pages/contnou.html">Sign up</a>
 				</div>
 			</div>
@@ -32,10 +35,10 @@
 				<a href="../pages/home.html">Home</a>
 				<a href="../pages/intrebari.html" class="activ">Intrebari</a>
 				<a href="../pages/top.html">Top</a>
-				<a href="#statistici">Statistici</a>
+				<a href="../pages/statistici.html">Statistici</a>
 				<a href="../pages/insigne.html">Insigne</a>
-				<a href="#rapoarte">Rapoarte</a>
-				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare activ">+ Adauga intrebare</a>
+				<a href="../pages/intrebareAdmin.html">Admin</a>
+				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare">+ <span class="none">Adauga intrebare</span></a>
 			</div>
 		</div>
 	</nav>
@@ -61,7 +64,7 @@
 					</select>
 				</div>
 				<div class="filtru">
-					<select class="inputSelect" placeholder="Categorie">
+					<select class="inputSelect">
 						<option value="">Alege tag-uri...</option>
 						<option value="#Design">#Design</option>
 						<option value="#Web">#Web</option>
@@ -76,14 +79,14 @@
 					</select>
 				</div>
 				<div class="filtru">
-					<select class="inputSelect" placeholder="Categorie">
+					<select class="inputSelect">
 						<option value="">Alege status intrebare...</option>
 						<option value="Rezolvata">Rezolvata</option>
 						<option value="Nerezolvata">Nerezolvata</option>
 					</select>
 				</div>
 				<div class="filtru">
-					<select class="inputSelect" placeholder="Categorie">
+					<select class="inputSelect">
 						<option value="">Alege ordonarea...</option>
 						<option value="CrescatorData">Crescator dupa data</option>
 						<option value="DescrescatorData">Descrescator dupa data</option>
@@ -97,16 +100,16 @@
 					<input type="text" class="inputSelect" placeholder="Cauta dupa cuvant cheie...">
 				</div>
 				<div class="filtru">
-					<input type="date" class="inputSelect" placeholder="De la data">
+					<input type="date" class="inputSelect">
 				</div>
 				<div class="filtru">
-					<input type="date" class="inputSelect" placeholder="Pana la data">
+					<input type="date" class="inputSelect">
 				</div>
 				<div class="filtru tc">
 					<input type="submit" class="inputSubmit" name="submitFiltrare" value="Cauta intrebare">
 				</div>
 			</form>
-			<div class="intrebare">
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -126,8 +129,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Popescu Ion</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -147,8 +150,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Popescu Ion</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -168,8 +171,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dulceanu Maria</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -189,8 +192,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -210,8 +213,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -231,8 +234,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -252,8 +255,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dulceanu Maria</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -273,8 +276,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dulceanu Maria</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -294,8 +297,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -315,8 +318,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -336,8 +339,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Popescu Ion</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -357,8 +360,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Popescu Ion</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -378,8 +381,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -399,8 +402,8 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
-			<div class="intrebare">
+			</a>
+			<a href="../pages/intrebare.html" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -420,7 +423,7 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-			</div>
+			</a>
 			<div class="butoanePaginare">
 				<a href="" title="Prima Pagina"><i class="fas fa-angle-double-left"></i><i class="fas fa-angle-double-left"></i></a>
 				<a href="" title="Pagina Anterioara"><i class="fas fa-angle-double-left"></i></a>
@@ -456,7 +459,7 @@
  						<a href="../pages/intrebari.html">Intrebari</a>
  						<a href="../pages/top.html">Top</a>
  						<a href="../pages/insigne.html">Insigne</a>
- 						<a href="#test">Statistici</a>
+ 						<a href="../pages/statistici.html">Statistici</a>
  					</div>
  				</div>
  				<div class="linkuri">
