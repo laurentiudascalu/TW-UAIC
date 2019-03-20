@@ -35,20 +35,23 @@
 				<a href="#statistici">Statistici</a>
 				<a href="../pages/insigne.html">Insigne</a>
 				<a href="#rapoarte">Rapoarte</a>
-				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare activ">+ Adauga intrebare</a>
+				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare">+ Adauga intrebare</a>
 			</div>
 		</div>
 	</nav>
 	<div class="container">
 		<div class="content">
 			<div class="boxPrimaPagina">
-				<div class="titluPrimaPagina"><i class="fas fa-plus addIntrebare"></i>Adauga intrebare</div>
-				<div class="box width65">
+				<div class="titluPrimaPagina"><i class="fas fa-plus fontRosu"></i>Adauga intrebare</div>
+				<div class="box full">
 					<div class="formular">
 						<form action="">
 							<div class="linieForm">
+								<div class="label">
+									Titlu
+								</div>
 								<div class="input">
-									<textarea class="height170" placeholder="Scrie intrebarea aici.."></textarea> 
+									<input type="text" name="titlu">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -57,7 +60,7 @@
 								</div>
 								<div class="input">
 									<select>
-										<option value="Informatica" selected="selected">Informatica</option>
+										<option value="Informatica">Informatica</option>
 										<option value="Matematica">Matematica</option>
 										<option value="Istorie">Istorie</option>
 										<option value="Geografie">Geografie</option>
@@ -76,8 +79,8 @@
 								</div>
 								<div class="input">
 									<select class="height140" multiple form="profilForm">
-										<option value="#Design" selected="selected">#Design</option>
-										<option value="#Web" selected="selected">#Web</option>
+										<option value="#Design">#Design</option>
+										<option value="#Web">#Web</option>
 									    <option value="#Integrale">#Integrale</option>
 									    <option value="#Windows">#Windows</option>
 									    <option value="#Gramatica">#Gramatica</option>
@@ -90,8 +93,11 @@
 								</div>
 							</div>
 							<div class="linieForm">
-								<div class="label">
+								<div class="input">
+									<textarea class="height170" placeholder="Scrie intrebarea aici.."></textarea> 
 								</div>
+							</div>
+							<div class="linieForm">
 								<div class="submit">
 							 		<input type="submit" value="Posteaza intrebarea" name="addintrebare">
 							 	</div>
