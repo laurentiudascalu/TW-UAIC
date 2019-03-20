@@ -1,260 +1,70 @@
-.titluBox {
-    color: #991d21;
-    padding-left: 20px;
-    padding-top: 20px;
-    font-size: 20px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #0c120c;
+@media only screen and (max-width : 1400px){
+    .adaugaIntrebare{
+        font-size: 16px !important;
+    }
 }
-.titluBox i{
-	font-size: 17px;
+@media only screen and (max-width : 1250px){
+    .meniu a, .adaugaIntrebare{
+        font-size: 14px !important;
+    }
 }
-.box{
-	border: 1px solid #0c120c;
-    margin: 0 auto;
-    width: 50%;
-    margin-top: 10px;
-    border-radius: 4px;
+@media only screen and (max-width : 1200px){
+    .insigne{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
-.formular{
-	background-color: rgba(231, 237, 238, 0.58);
+@media only screen and (max-width : 1100px){
+    .none{
+        display:none; 
+        padding-left: 0px !important;
+        padding-right: 0px !important; 
+    }
 }
-.linieForm {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    padding-top: 30px;
-    margin-left: 40px;
-    margin-right: 40px;
-    font-size: 18px;
+@media only screen and (max-width : 900px){
+    .insigne{
+        grid-template-columns: 1fr 1fr;
+    }
 }
-.linieForm:last-child{
-	padding-bottom: 30px;
-	margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid;
+@media only screen and (max-width : 700px){
+    .cauta input{
+        display: none;
+    }
+    .cautareSus button{
+        height: 30px;
+        border-left: 1px solid #0c120c;
+        border-radius: 3px;
+    }
 }
-.linieForm a{
-	text-decoration: none;
-	color: #0c120c;
-	cursor: pointer;
+@media only screen and (max-width : 650px){
+    .linkuri{
+        margin-right: 10px;
+    }  
 }
-.linieForm a:hover{
-	text-decoration: none;
-	color: #991d21;
-	cursor: pointer;
+@media only screen and (max-width : 600px){
+    .insigne{
+        grid-template-columns: 1fr;
+    }
 }
-.label{
-	flex: 1;
-	padding-top: 5px;
-}
-.input{
-	flex:3;
-}
-.input input:not(.noHoverInput), .input select, .inputSelect {
-    width: 100%;
-    border-radius: 4px;
-    height: 30px;
-    border: 1px solid #0c120c;
-    padding-left: 5px;
-}
-.input input:not(.noHoverInput):hover, .input textarea:hover, .input select:hover, .inputSelect:hover{
-    border-radius: 4px;
-    transition: .3s all;
-    border: 1px solid #35b3d6;
-    box-shadow: 0px 0px 3px 1px #35b3d6;
-}
-.input input:not(.noHoverInput):focus, .input textarea:focus, .input select:focus, .inputSelect:focus{
-    border-radius: 4px;
-    outline: none;
-    border: 1px solid #35b3d6;
-    box-shadow: 0px 0px 3px 1px #35b3d6;
-}
-.height140{
-    height: 140px !important; 
-}
-.submit{
-    text-align: left;
-    flex: 3;
-}
-.submit input, .inputSubmit{
-	height: 30px;
-    color: #fff;
-    min-width: 120px;
-    border-radius: 4px;
-    border: 1px solid #0c120c;
-    background-color: #35b3d6;
-}
-.submit input:hover, .inputSubmit:hover{
-	transition: .3s all;
-    border: 1px solid #35b3d6;
-    box-shadow: 0px 0px 3px 1px #35b3d6;
-    cursor: pointer;
-}
-.dflex{
-    display: flex;
-}
-.mr30{
-    margin-right: 30px;
-}
-.titluContent{
-    color: #991d21;
-    font-size: 25px;
-    border-bottom: 1px solid #0c120c;
-    margin-bottom: 30px;
-}
-.titluContent span{
-    margin-bottom: 10px;
-    display: block;
-}
-.meniuCont {
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.meniuCont a:hover{
-    background-color:#35b3d6;
-    border: 1px solid #35b3d6;
-    transition: .3s all;
-}
-.meniuCont a {
-    padding-top: 6px;
-    font-size: 14px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-    margin-right: 20px;
-    text-decoration: none;
-    color: #fff;
-    height: 30px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #19647e;
-    border: 1px solid #0c120c;
-}
-.width100{
-    width: 100%;
-}
-.input textarea{
-    width: 100%;
-    border-radius: 4px;
-    height: 100px;
-    border: 1px solid #0c120c;
-    padding-left: 5px;
-}
-.contentTop{
-    display: block;
-}
-.contulTau{
-    width: 140px;
-    text-align: right;
-    padding-top: 15px;
-}
-.contulTau a{
-    text-decoration: none;
-    color: #35b3d6;
-    font-size: 14px;
-}
-.contulTau i{
-    font-size: 13px;
-    margin-right: 3px;
-}
-.contulTau button{
-    min-width: 70px;
-    height: 25px;
-    background-color: #fff;
-    border: 1px solid #0c120c;
-    border-radius: 4px;
-    margin-right: 5px;
-}
-.contulTau button:hover{
-    transition: .3s all;
-    border: 1px solid #35b3d6;
-    box-shadow: 0px 0px 3px 1px #35b3d6;
-}
-.insignaExplicit{
-    margin-bottom: 40px;
-}
-.explicatieInsigna{
-    font-size: 18px;
-    margin-bottom: 40px;
-}
-.insignaExplicit .insigna{
-    width: 25%;
-    margin: 0 auto;
-}
-.height170{
-    height: 170px !important;
-}
-.full{
-    width: 100% !important;
-}
-.fontRosu{
-    color: #991d21;
-    font-size: 18px;
-    margin-right: 8px;
-}
-.butoanePaginare{
-    width: 100%;
-    text-align: right;
-    padding-top: 10px;
-}
-.butoanePaginare a{
-    display: inline-block;
-    border: 1px solid #0c120c;
-    border-radius: 4px;
-    height: 30px;
-    width: 40px;
-    text-align: center;
-    padding-top: 6px;
-    margin-right: 5px;
-}
-.butoanePaginare a:last-child{
-    margin-right: 0px;
-}
-.butoanePaginare a:hover{
-    border-radius: 4px;
-    transition: .3s all;
-    border: 1px solid #35b3d6;
-    box-shadow: 0px 0px 3px 1px #35b3d6;
-}
-.butoanePaginare i{
-    color: #19647e;
-}
-.titluPaginiS{
-    display: flex;
-    color: #0c120c;
-    font-size: 22px;
-    font-weight: 600;
-    text-align: left;
-    padding-left: 0px;
-    line-height: 25px;
-    margin-bottom: 40px;
-    padding-bottom: 7px;
-    border-bottom: 1.5px solid #19647e;
-}
-.titluPaginiS span{
-    flex:1;
-}
-.edit{
-    flex:1;
-    text-align: right;
-}
-.height400{
-    height: 400px !important;
-}
-.textSus{
-    margin-left: 40px;
-    margin-right: 40px;
-    padding-top: 30px;
-}
-.pl40{
-    padding-left: 40px !important;
-}
-.w40{
-    width: 40px !important;
-}
-.mr5{
-    margin-right: 5px;
+@media only screen and (max-width : 550px){
+     .dreaptaJos{
+        display:none; 
+    }
+    .jos{
+        display: block;
+    }  
+    .linkuri{
+        flex: unset;
+    }
+    footer{
+        height: 850px;
+    }
+    body {
+        padding-bottom: 880px;
+    }
+    .jos{
+        padding-top: 25px;
+    }
+    .linkuri{
+        margin-top: 0px;
+    }
 }
