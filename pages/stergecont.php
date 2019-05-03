@@ -2,16 +2,7 @@
 <?php include('./pages/sus.php'); ?>
 	<div class="content">
 		<div class="container">
-			<div class="meniuCont">
-				<a href="./contultau">Contul tau</a>
-				<a href="./profil">Profil</a>
-				<a href="./intrebariletale">Intrebarile tale</a>
-				<a href="./raspunsuriletale">Raspunsurile tale</a>
-				<a href="./statisticiletale">Statisticile tale</a>
-				<a href="./insigneletale">Insignele tale</a>
-				<a href="./stergecont" class="activ">Sterge cont</a>
-				<a href="logout">Log-out</a>
-			</div>
+			<?php include('./pages/meniuCont.php'); ?>
 			<div class="titluContent">
 				<span>Sterge cont</span>
 			</div>

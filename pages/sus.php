@@ -20,13 +20,13 @@
 	<nav>
 		<div class="container">
 			<div class="meniu">
-				<a href="./home" class="activ">Home</a>
-				<a href="./intrebari">Intrebari</a>
-				<a href="./top">Top</a>
-				<a href="./statistici">Statistici</a>
-				<a href="./insigne">Insigne</a>
-				<a href="./intrebareAdmin">Admin</a>
-				<a href="./adaugaintrebare" class="adaugaIntrebare activ">+ <span class="none">Adauga intrebare</span></a>
+				<a href="./home" <?php if($activ=='home'){ ?> class="activ" <?php } ?> >Home</a>
+				<a href="./intrebari" <?php if($activ=='intrebari'){ ?> class="activ" <?php } ?> >Intrebari</a>
+				<a href="./top" <?php if($activ=='top'){ ?> class="activ" <?php } ?> >Top</a>
+				<a href="./statistici" <?php if($activ=='statistici'){ ?> class="activ" <?php } ?> >Statistici</a>
+				<a href="./insigne" <?php if($activ=='insigne'){ ?> class="activ" <?php } ?> >Insigne</a>
+				<a href="./intrebareAdmin" <?php if($activ=='intrebareAdmin'){ ?> class="activ" <?php } ?> >Admin</a>
+				<a href="./adaugaintrebare" class="adaugaIntrebare <?php if($activ=='adaugaintrebare'){ echo 'activ'; } ?>" >+ <span class="none">Adauga intrebare</span></a>
 			</div>
 		</div>
 	</nav>
