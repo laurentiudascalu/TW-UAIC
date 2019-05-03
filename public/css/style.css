@@ -172,9 +172,7 @@ nav {
     padding-top: 16px;
     transition: .3s background-color;
 }
-.meniu a:hover, .activ{
-	background-color: #35b3d6 !important;
-}
+
 footer{
 	position: absolute;
 	bottom: 0;
@@ -792,4 +790,7 @@ footer{
 }
 .contulTau .buton{
     width: 110px;
+}
+.meniu a:hover, .activ{
+    background-color: #35b3d6 !important;
 }
