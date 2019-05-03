@@ -15,21 +15,21 @@
  				<div class="linkuri">
  					<div class="titluBoxJos">Link-uri utile</div>
  					<div class="continutBoxJos">
- 						<a href="../pages/home.html">Home</a>
- 						<a href="../pages/contultau.html">Contul tau</a>
- 						<a href="../pages/intrebari.html">Intrebari</a>
- 						<a href="../pages/top.html">Top</a>
- 						<a href="../pages/insigne.html">Insigne</a>
- 						<a href="../pages/statistici.html">Statistici</a>
+ 						<a href="./home">Home</a>
+ 						<a href="./contultau">Contul tau</a>
+ 						<a href="./intrebari">Intrebari</a>
+ 						<a href="./top">Top</a>
+ 						<a href="./insigne">Insigne</a>
+ 						<a href="./statistici">Statistici</a>
  					</div>
  				</div>
  				<div class="linkuri">
  					<div class="titluBoxJos">Despre noi</div>
  					<div class="continutBoxJos">
- 						<a href="/adwise/despre">Despre</a>
- 						<a href="/inceputuri">Inceputuri</a>
- 						<a href="../pages/planuriviitor.html">Planuri de viitor</a>
- 						<a href="../pages/taskindeplinite.html">Task-uri indeplinite</a>
+ 						<a href="./despre">Despre</a>
+ 						<a href="./inceputuri">Inceputuri</a>
+ 						<a href="./planuriviitor">Planuri de viitor</a>
+ 						<a href="./taskindeplinite">Task-uri indeplinite</a>
  					</div>
  				</div>
  			</div>

@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="sus">
 				<div class="logo">
-					<a href="../pages/home.html"><img src="./public/pics/logo4.png" alt="logo"></a>
+					<a href="./home"><img src="./public/pics/logo4.png" alt="logo"></a>
 				</div>
 				<div class="cauta">
 					<form action="/p" class="cautareSus">
@@ -11,8 +11,8 @@
 					</form>
 				</div>
 				<div class="login">
-					<div class="buton"><a href="../pages/login.html">Log-in</a></div>
-					<a href="../pages/contnou.html">Sign up</a>
+					<div class="buton"><a href="./login">Log-in</a></div>
+					<a href="./contnou">Sign up</a>
 				</div>
 			</div>
 		</div>
@@ -20,13 +20,13 @@
 	<nav>
 		<div class="container">
 			<div class="meniu">
-				<a href="../pages/home.html" class="activ">Home</a>
-				<a href="../pages/intrebari.html">Intrebari</a>
-				<a href="../pages/top.html">Top</a>
-				<a href="../pages/statistici.html">Statistici</a>
-				<a href="../pages/insigne.html">Insigne</a>
-				<a href="../pages/intrebareAdmin.html">Admin</a>
-				<a href="../pages/adaugaintrebare.html" class="adaugaIntrebare activ">+ <span class="none">Adauga intrebare</span></a>
+				<a href="./home" class="activ">Home</a>
+				<a href="./intrebari">Intrebari</a>
+				<a href="./top">Top</a>
+				<a href="./statistici">Statistici</a>
+				<a href="./insigne">Insigne</a>
+				<a href="./intrebareAdmin">Admin</a>
+				<a href="./adaugaintrebare" class="adaugaIntrebare activ">+ <span class="none">Adauga intrebare</span></a>
 			</div>
 		</div>
 	</nav>

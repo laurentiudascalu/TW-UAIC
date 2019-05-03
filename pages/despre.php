@@ -6,7 +6,7 @@
 				<div class="titluPaginiS">
 					<span>Despre noi</span>
 					<div class="buton">
-						<a href="../pages/edit.html"><i class="fas fa-pencil-alt"></i>Edit</a>
+						<a href="./edit"><i class="fas fa-pencil-alt"></i>Edit</a>
 					</div>
 				</div>
 				<div class="continutPaginaStatica">
