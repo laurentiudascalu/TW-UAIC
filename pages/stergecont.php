@@ -12,15 +12,16 @@
 						<i class="fas fa-trash-alt"></i> Formular stergere cont
 					</div>
 					<div class="formular">
-						<form action="p">
+						<form action="index.php" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Parola
 								</div>
 								<div class="input">
-									<input type="text" name="oras">
+									<input type="password" name="parola">
 								</div>
 							</div>
+							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>

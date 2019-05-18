@@ -12,13 +12,13 @@
 						<i class="fas fa-user-edit"></i> Editeaza datele
 					</div>
 					<div class="formular">
-						<form action="p">
+						<form action="index.php" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Nume complet
 								</div>
 								<div class="input">
-									<input type="text" name="nume" value="Dulceanu Maria">
+									<input type="text" name="nume" value="<?php echo @$useri['nume_complet']; ?>" >
 								</div>
 							</div>
 							<div class="linieForm">
@@ -26,7 +26,7 @@
 									Mail
 								</div>
 								<div class="input">
-									<input type="email" name="mail" value="dulceanu.m@gmail.com">
+									<input type="email" name="mail" value="<?php echo @$useri['mail']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -34,9 +34,10 @@
 									Telefon
 								</div>
 								<div class="input">
-									<input type="tel" name="telefon" value="0765432198">
+									<input type="tel" name="telefon" value="<?php echo @$useri['tel']; ?>">
 								</div>
 							</div>
+							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>
@@ -44,6 +45,7 @@
 							 		<input type="submit" value="Editeaza datele" name="editeazadate">
 							 	</div>
 							</div>
+							
 						</form>
 					</div>
 				</div>
@@ -52,7 +54,7 @@
 						<i class="fas fa-key"></i> Schimba Parola
 					</div>
 					<div class="formular">
-						<form action="p">
+						<form action="index.php" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Parola veche
@@ -77,6 +79,7 @@
 									<input type="password" name="reparolanoua">
 								</div>
 							</div>
+							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>

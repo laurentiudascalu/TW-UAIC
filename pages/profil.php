@@ -12,13 +12,13 @@
 						<i class="fas fa-user-circle"></i> Completeaza-ti profilul
 					</div>
 					<div class="formular">
-						<form action="p" id="profilForm">
+						<form action="index.php" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Oras
 								</div>
 								<div class="input">
-									<input type="text" name="oras" value="Iasi">
+									<input type="text" name="oras" value="<?php echo @$useri['oras']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -54,7 +54,7 @@
 									Adresa
 								</div>
 								<div class="input">
-									<input type="text" name="adresa" value="str. Voievozilor nr.44">
+									<input type="text" name="adresa" value="<?php echo @$useri['adresa']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -62,7 +62,7 @@
 									Data nasterii
 								</div>
 								<div class="input">
-									<input type="date" name="datanastere" value="1995-02-14">
+									<input type="date" name="datanastere" value="<?php echo @$useri['data_nasterii']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -70,7 +70,7 @@
 									Culoare preferata
 								</div>
 								<div class="input">
-									<input type="color" name="culoarepref" value="#e91e63">
+									<input type="color" name="culoarepref" value="<?php echo @$useri['culoare_preferata']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -78,7 +78,7 @@
 									Mancare preferata
 								</div>
 								<div class="input">
-									<input type="text" name="mancarepref" value="Burger">
+									<input type="text" name="mancarepref" value="<?php echo @$useri['mancare_preferata']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -105,9 +105,10 @@
 									Descriere scurta
 								</div>
 								<div class="input">
-									<textarea>Sunt o persoana sociabila, imi place sa imi fac prieteni. Am participat in organizatii de voluntariat si sunt pasionata de informatica.</textarea>
+									<textarea name="descriere"><?php echo @$useri['descriere']; ?></textarea>
 								</div>
 							</div>
+							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>
