@@ -12,7 +12,7 @@
 						<i class="fas fa-user-edit"></i> Editeaza datele
 					</div>
 					<div class="formular">
-						<form action="index.php" method="post">
+						<form action="./p" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Nume complet
@@ -54,7 +54,7 @@
 						<i class="fas fa-key"></i> Schimba Parola
 					</div>
 					<div class="formular">
-						<form action="index.php" method="post">
+						<form action="./p" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Parola veche

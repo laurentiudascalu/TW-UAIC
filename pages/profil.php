@@ -12,7 +12,7 @@
 						<i class="fas fa-user-circle"></i> Completeaza-ti profilul
 					</div>
 					<div class="formular">
-						<form action="index.php" method="post">
+						<form action="./p" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Oras
@@ -86,18 +86,7 @@
 									Animal Preferat
 								</div>
 								<div class="input">
-									<select class="height140" multiple form="profilForm">
-										<option value="Cainele" selected="selected">Cainele</option>
-										<option value="Pisica">Pisica</option>
-									    <option value="Sarpele">Sarpele</option>
-									    <option value="Hamsterul" selected="selected">Hamsterul</option>
-									    <option value="Leul">Leul</option>
-									    <option value="Tigrul">Tigrul</option>
-									    <option value="Vaca">Vaca</option>
-									    <option value="Porcul">Porcul</option>
-									    <option value="Gaina">Gaina</option>
-									    <option value="Rata">Rata</option>
-									</select>
+									<input type="text" name="animalpref" value="<?php echo @$useri['animal_preferat']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">

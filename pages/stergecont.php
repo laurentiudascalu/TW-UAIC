@@ -12,7 +12,7 @@
 						<i class="fas fa-trash-alt"></i> Formular stergere cont
 					</div>
 					<div class="formular">
-						<form action="index.php" method="post">
+						<form action="./p" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Parola
