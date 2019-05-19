@@ -1,9 +1,11 @@
 <?php
 	require('./declarations.php');
 
+	require('./mod.php');
+
 	require('./autentificare.php');
 	 
-	if(strstr($url,'/delogare') && $user['id']==0){
+	if(strstr($url,'/delogare')){
 		$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
 		$result = mysqli_query($conn, $sql);
 		unset($_COOKIE['login']);
@@ -15,9 +17,9 @@
 	}elseif(strstr($url,'/adaugaintrebare')){
 		$activ='adaugaintrebare';
 		require('./pages/adaugaintrebare.php');
-	}elseif(strstr($url,'/contnou') && $user['id']==0){
+	}elseif(strstr($url,'/contnou')){
 		require('./pages/contnou.php');
-	}elseif(strstr($url,'/contultau') && $user['id']>0){
+	}elseif(strstr($url,'/contultau')){
 		$activCont = 'contultau';
 		require('./pages/contultau.php');
 	}elseif(strstr($url,'/editraspuns')){
@@ -26,7 +28,7 @@
 		require('./pages/edit.php');
 	}elseif(strstr($url,'/inceputuri')){
 		require('./pages/inceputuri.php');
-	}elseif(strstr($url,'/insigneletale') && $user['id']>0){
+	}elseif(strstr($url,'/insigneletale')){
 		$activCont = 'insigneletale';
 		require('./pages/insigneletale.php');
 	}elseif(strstr($url,'/insigne')){
@@ -37,31 +39,31 @@
 		require('./pages/intrebareAdmin.php');
 	}elseif(strstr($url,'/intrebare')){
 		require('./pages/intrebare.php');
-	}elseif(strstr($url,'/intrebariletale')&& $user['id']>0){
+	}elseif(strstr($url,'/intrebariletale')){
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
 	}elseif(strstr($url,'/intrebari')){
 		$activ='intrebari';
 		require('./pages/intrebari.php');
-	}elseif(strstr($url,'/login') && $user['id']==0){
+	}elseif(strstr($url,'/login')){
 		require('./pages/login.php');
 	}elseif(strstr($url,'/planuriviitor')){
 		require('./pages/planuriviitor.php');
-	}elseif(strstr($url,'/profil') && $user['id']>0){
+	}elseif(strstr($url,'/profil')){
 		$activCont = 'profil';
 		require('./pages/profil.php');
-	}elseif(strstr($url,'/raspunsuriletale') && $user['id']>0){
+	}elseif(strstr($url,'/raspunsuriletale')){
 		$activCont = 'raspunsuriletale';
 		require('./pages/raspunsuriletale.php');
-	}elseif(strstr($url,'/reparola') && $user['id']==0){
+	}elseif(strstr($url,'/reparola')){
 		require('./pages/reparola.php');
-	}elseif(strstr($url,'/statisticiletale') && $user['id']>0){
+	}elseif(strstr($url,'/statisticiletale')){
 		$activCont = 'statisticiletale';
 		require('./pages/statisticiletale.php');
 	}elseif(strstr($url,'/statistici')){
 		$activ='statistici';
 		require('./pages/statistici.php');
-	}elseif(strstr($url,'/stergecont') && $user['id']>0){
+	}elseif(strstr($url,'/stergecont')){
 		$activCont = 'stergecont';
 		require('./pages/stergecont.php');
 	}elseif(strstr($url,'/taskindeplinite')){

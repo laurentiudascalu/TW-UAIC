@@ -37,4 +37,14 @@
 			}
 	    }
 	}
+
+	$paginiAut=array('delogare','contultau','insigneletale','intrebariletale','raspunsuriletale','statisticiletale','stergecont','profil');
+	$paginiNeAut=array('login','contnou','reparola');
+	$urlLast=explode('/',$url);
+	$urlLast=$urlLast[count($urlLast)-1];
+	if((in_array($urlLast,$paginiAut) && $user['id']==0) || (in_array($urlLast,$paginiNeAut) && $user['id']>0)){
+		header('Location: '.$base_url);
+		exit;
+	}
+
 ?>
