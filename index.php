@@ -3,7 +3,7 @@
 
 	require('./autentificare.php');
 	 
-	if(strstr($url,'/delogare')){
+	if(strstr($url,'/delogare') && $user['id']==0){
 		$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
 		$result = mysqli_query($conn, $sql);
 		unset($_COOKIE['login']);

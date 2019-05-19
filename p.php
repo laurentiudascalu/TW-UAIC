@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST['editeazadate'])){
-		$sql="SELECT * from `useri` where (`mail` = '".$_POST['mail']."' OR `tel` = '".$_POST['telefon']."' ) AND `id`!=1 ";
+		$sql="SELECT * from `useri` where (`mail` = '".$_POST['mail']."' OR `tel` = '".$_POST['telefon']."' ) AND `id`!='".$user['id']."'";
 		$result = mysqli_query($conn, $sql.'');
 		$corect=1;
 		if(mysqli_num_rows($result)>0){
@@ -39,7 +39,7 @@
 				$sql.=", `tel`='".$_POST['telefon']."'";
 			}
 			}
-			$sql.=" where `id`='".$_POST['id']."'";
+			$sql.=" where `id`='".$user['id']."'";
 				if ($conn->query($sql) === TRUE) {
 				    echo "Profil modificat";
 				} else {
@@ -53,7 +53,7 @@
 	}
 
 	if(isset($_POST['schimbaparola'])){
-		$sql="SELECT * from `useri` where `parola` = '".$_POST['parolaveche']."' AND `id` = '".$_POST['id']."'";
+		$sql="SELECT * from `useri` where `parola` = '".$_POST['parolaveche']."' AND `id` = '".$user['id']."'";
 		$result = mysqli_query($conn, $sql.'');
 		$corect=1;
 		if(mysqli_num_rows($result)==0){
@@ -66,7 +66,7 @@
 		if($corect){
 			$sql='';
 			if(isset($_POST['parolaveche']) && $_POST['parolaveche']!='' && isset($_POST['parolanoua']) && $_POST['parolanoua']!='' && isset($_POST['reparolanoua']) && $_POST['reparolanoua']!=''){
-					$sql = "UPDATE useri SET `parola`='".$_POST['parolanoua']."' WHERE `id` = '".$_POST['id']."'";
+					$sql = "UPDATE useri SET `parola`='".$_POST['parolanoua']."' WHERE `id` = '".$user['id']."'";
 			}
 
 			if ($conn->query($sql) === TRUE) {
@@ -140,7 +140,7 @@
 			$sql.=", `descriere`='".$_POST['descriere']."'";
 		}
 		}
-		$sql.=" where `id`='".$_POST['id']."'";
+		$sql.=" where `id`='".$user['id']."'";
 
 		if ($conn->query($sql) === TRUE) {
 		    echo "Profil modificat";
@@ -154,7 +154,7 @@
 	if(isset($_POST['stergecont'])){
 		$sql='';
 		if(isset($_POST['parola']) && $_POST['parola']!=''){
-				$sql = "UPDATE useri SET `del`='1' where `id`='".$_POST['id']."'";
+				$sql = "UPDATE useri SET `del`='1' where `id`='".$user['id']."'";
 		}
 		if ($conn->query($sql) === TRUE) {
 		    echo "Cont sters";
