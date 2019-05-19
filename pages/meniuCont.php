@@ -6,5 +6,5 @@
 		<a href="./statisticiletale" <?php if($activCont == 'statisticiletale'){ ?> class="activ" <?php } ?> >Statisticile tale</a>
 		<a href="./insigneletale" <?php if($activCont == 'insigneletale'){ ?> class="activ" <?php } ?> >Insignele tale</a>
 		<a href="./stergecont" <?php if($activCont == 'stergecont'){ ?> class="activ" <?php } ?> >Sterge cont</a>
-		<a href="logout">Log-out</a>
+		<a href="./delogare">Log-out</a>
 	</div>
