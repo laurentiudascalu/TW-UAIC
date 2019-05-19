@@ -42,6 +42,7 @@
 	$paginiNeAut=array('login','contnou','reparola');
 	
 	if((in_array($urlLast,$paginiAut) && $user['id']==0) || (in_array($urlLast,$paginiNeAut) && $user['id']>0)){
+		$_SESSION["mesaj"]='Nu puteti accesa aceasta zona a sitului.';
 		header('Location: '.$base_url);
 		exit;
 	}
