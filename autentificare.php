@@ -19,8 +19,8 @@
 		$sql="SELECT * FROM `login` WHERE `cookie` = '".$_COOKIE['login']."' AND del = 0";
 		$result = mysqli_query($conn, $sql);
 		if(mysqli_num_rows($result) > 0){
-			if($row['expire'] > date('Y-m-d H:i:s')){
-				while($row = mysqli_fetch_assoc($result)) { 
+			while($row = mysqli_fetch_assoc($result)) { 
+				if($row['expire'] > date('Y-m-d H:i:s')){
 		        	$sql="SELECT * FROM `useri` WHERE `id` = '".$row['id_user']."'";
 		        	$result1 = mysqli_query($conn, $sql);
 		        	if(mysqli_num_rows($result1) > 0){
@@ -28,12 +28,12 @@
 			        		$user=$row1;
 			        	}
 			        }
-		      	}
-			}else{
-				$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
-				$result = mysqli_query($conn, $sql);
-				unset($_COOKIE['login']);
-		    	setcookie('login', '', time() - 3600);
+				}else{
+					$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
+					$result = mysqli_query($conn, $sql);
+					unset($_COOKIE['login']);
+			    	setcookie('login', '', time() - 3600);
+				}
 			}
 	    }
 	}
