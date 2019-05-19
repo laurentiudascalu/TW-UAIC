@@ -9,6 +9,9 @@
 	$activ     = 'home';
 	$activCont = '';
 
+	$urlLast=explode('/',$url);
+	$urlLast=$urlLast[count($urlLast)-1];
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
