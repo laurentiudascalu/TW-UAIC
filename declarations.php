@@ -4,7 +4,7 @@
 	} else {
 		$base_url = 'http://';
 	}
-	$base_url .= $_SERVER['HTTP_HOST'];
+	$base_url .= $_SERVER['HTTP_HOST'].'/adwise/';
 	$url       = $_SERVER['REQUEST_URI'];
 	$activ     = 'home';
 	$activCont = '';

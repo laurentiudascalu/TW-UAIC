@@ -8,8 +8,6 @@
 		$result = mysqli_query($conn, $sql);
 		unset($_COOKIE['login']);
     	setcookie('login', '', time() - 3600);
-	}elseif(strstr($url,'/autentificare')){
-		require('./autentificare.php');
 	}elseif(strstr($url,'/despre')){
 		require('./pages/despre.php');
 	}elseif(strstr($url,'/adaugaintrebare')){
