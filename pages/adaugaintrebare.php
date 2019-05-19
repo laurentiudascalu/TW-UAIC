@@ -6,7 +6,7 @@
 				<div class="titluPrimaPagina"><i class="fas fa-plus fontRosu"></i>Adauga intrebare</div>
 				<div class="box full">
 					<div class="formular">
-						<form action="p">
+						<form action="./p" method="post">
 							<div class="linieForm">
 								<div class="label">
 									Titlu
@@ -20,17 +20,11 @@
 									Alege o categorie
 								</div>
 								<div class="input">
-									<select>
-										<option value="Informatica">Informatica</option>
-										<option value="Matematica">Matematica</option>
-										<option value="Istorie">Istorie</option>
-										<option value="Geografie">Geografie</option>
-										<option value="Limbi straine">Limbi straine</option>
-										<option value="Antreprenoriat">Antreprenoriat</option>
-										<option value="Sport">Sport</option>
-										<option value="Turism">Turism</option>
-										<option value="Muzica">Muzica</option>
-										<option value="Literatura">Literatura</option>
+									<select name="categorie">
+										<?php if(mysqli_num_rows($categorii) > 0){
+											while($row = mysqli_fetch_assoc($categorii)) { ?>
+										<option value="<?php echo $row['id']; ?>"><?php echo ucfirst($row['categorie']); ?></option>
+									<?php } } ?>
 									</select>
 							 	</div>
 							</div>
@@ -39,23 +33,17 @@
 									Selecteaza hashtag-uri
 								</div>
 								<div class="input">
-									<select class="height140" multiple>
-										<option value="#Design">#Design</option>
-										<option value="#Web">#Web</option>
-									    <option value="#Integrale">#Integrale</option>
-									    <option value="#Windows">#Windows</option>
-									    <option value="#Gramatica">#Gramatica</option>
-									    <option value="#Maraton">#Maraton</option>
-									    <option value="#Engleza">#Engleza</option>
-									    <option value="#Germana">#Germana</option>
-									    <option value="#Afaceri">#Afaceri</option>
-									    <option value="#Fotbal">#Fotbal</option>
+									<select name="taguri" class="height140" multiple>
+										<?php if(mysqli_num_rows($taguri) > 0){
+											while($row = mysqli_fetch_assoc($taguri)) { ?>
+												<option value="<?php echo $row['id']; ?>"><?php echo '#'.$row['tag']; ?></option>
+										<?php } } ?>
 									</select>
 								</div>
 							</div>
 							<div class="linieForm">
 								<div class="input">
-									<textarea class="height170" placeholder="Scrie intrebarea aici.."></textarea> 
+									<textarea name="intrebare" class="height170" placeholder="Scrie intrebarea aici.."></textarea> 
 								</div>
 							</div>
 							<div class="linieForm">
