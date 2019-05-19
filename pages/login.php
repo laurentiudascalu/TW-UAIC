@@ -7,7 +7,7 @@
 					<i class="fas fa-user"></i> Intra in cont 
 				</div>
 				<div class="formular">
-					<form action="/adwise/autentificare" method="post">
+					<form action="./p" method="post">
 						<div class="linieForm">
 							<div class="label">
 								Mail

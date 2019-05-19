@@ -18,7 +18,7 @@
 									Nume complet
 								</div>
 								<div class="input">
-									<input type="text" name="nume" value="<?php echo @$useri['nume_complet']; ?>" >
+									<input type="text" name="nume" value="<?php echo @$user['nume_complet']; ?>" >
 								</div>
 							</div>
 							<div class="linieForm">
@@ -26,7 +26,7 @@
 									Mail
 								</div>
 								<div class="input">
-									<input type="email" name="mail" value="<?php echo @$useri['mail']; ?>">
+									<input type="email" name="mail" value="<?php echo @$user['mail']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -34,10 +34,10 @@
 									Telefon
 								</div>
 								<div class="input">
-									<input type="tel" name="telefon" value="<?php echo @$useri['tel']; ?>">
+									<input type="tel" name="telefon" value="<?php echo @$user['tel']; ?>">
 								</div>
 							</div>
-							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
+							<input type="hidden" name="id" value="<?php echo @$user['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>
@@ -79,7 +79,7 @@
 									<input type="password" name="reparolanoua">
 								</div>
 							</div>
-							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
+							<input type="hidden" name="id" value="<?php echo @$user['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>

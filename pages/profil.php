@@ -18,7 +18,7 @@
 									Oras
 								</div>
 								<div class="input">
-									<input type="text" name="oras" value="<?php echo @$useri['oras']; ?>">
+									<input type="text" name="oras" value="<?php echo @$user['oras']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -54,7 +54,7 @@
 									Adresa
 								</div>
 								<div class="input">
-									<input type="text" name="adresa" value="<?php echo @$useri['adresa']; ?>">
+									<input type="text" name="adresa" value="<?php echo @$user['adresa']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -62,7 +62,7 @@
 									Data nasterii
 								</div>
 								<div class="input">
-									<input type="date" name="datanastere" value="<?php echo @$useri['data_nasterii']; ?>">
+									<input type="date" name="datanastere" value="<?php echo @$user['data_nasterii']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -70,7 +70,7 @@
 									Culoare preferata
 								</div>
 								<div class="input">
-									<input type="color" name="culoarepref" value="<?php echo @$useri['culoare_preferata']; ?>">
+									<input type="color" name="culoarepref" value="<?php echo @$user['culoare_preferata']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -78,7 +78,7 @@
 									Mancare preferata
 								</div>
 								<div class="input">
-									<input type="text" name="mancarepref" value="<?php echo @$useri['mancare_preferata']; ?>">
+									<input type="text" name="mancarepref" value="<?php echo @$user['mancare_preferata']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -86,7 +86,7 @@
 									Animal Preferat
 								</div>
 								<div class="input">
-									<input type="text" name="animalpref" value="<?php echo @$useri['animal_preferat']; ?>">
+									<input type="text" name="animalpref" value="<?php echo @$user['animal_preferat']; ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -94,10 +94,10 @@
 									Descriere scurta
 								</div>
 								<div class="input">
-									<textarea name="descriere"><?php echo @$useri['descriere']; ?></textarea>
+									<textarea name="descriere"><?php echo @$user['descriere']; ?></textarea>
 								</div>
 							</div>
-							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
+							<input type="hidden" name="id" value="<?php echo @$user['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>

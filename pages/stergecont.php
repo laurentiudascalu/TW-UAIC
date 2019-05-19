@@ -21,7 +21,7 @@
 									<input type="password" name="parola">
 								</div>
 							</div>
-							<input type="hidden" name="id" value="<?php echo @$useri['id']; ?>">
+							<input type="hidden" name="id" value="<?php echo @$user['id']; ?>">
 							<div class="linieForm">
 								<div class="label">
 								</div>
