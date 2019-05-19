@@ -15,6 +15,8 @@
 	}elseif(strstr($url,'/despre')){
 		require('./pages/despre.php');
 	}elseif(strstr($url,'/adaugaintrebare')){
+		$categorii=getCategorii();
+		$taguri=getTaguri();
 		$activ='adaugaintrebare';
 		require('./pages/adaugaintrebare.php');
 	}elseif(strstr($url,'/contnou')){
