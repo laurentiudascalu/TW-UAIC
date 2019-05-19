@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="./public/css/style2.css" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<title>Adwise</title>
 </head>
 <body>
+<?php if(isset($_SESSION["mesaj"]) && $_SESSION["mesaj"]!=''){ ?>
+	<div class="mesaj">
+		<span class="mesajClose" onclick="$('.mesaj').hide('slow');"><i class="fas fa-times"></i></span>
+		<span class="mesajText"><?php echo $_SESSION["mesaj"]; ?></span>
+	</div>
+
+<?php unset($_SESSION["mesaj"]); }?>
