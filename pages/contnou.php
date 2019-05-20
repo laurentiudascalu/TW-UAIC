@@ -7,7 +7,7 @@
 					<i class="fas fa-user"></i> Creeaza-ti cont nou
 				</div>
 				<div class="formular">
-					<form action="p">
+					<form action="./p" method="post">
 						<div class="linieForm">
 							<div class="label">
 								Nume complet
@@ -52,7 +52,7 @@
 							<div class="label">
 							</div>
 							<div class="submit">
-						 		<input type="submit" value="Creeaza cont" name="login">
+						 		<input type="submit" value="Creeaza cont" name="signup">
 						 	</div>
 						</div>
 						<div class="linieForm">

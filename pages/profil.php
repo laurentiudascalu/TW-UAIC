@@ -18,7 +18,7 @@
 									Oras
 								</div>
 								<div class="input">
-									<input type="text" name="oras" value="<?php echo @$user['oras']; ?>">
+									<input type="text" name="oras" value="<?php echo ucfirst(@$user['oras']); ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -26,27 +26,7 @@
 									Judet
 								</div>
 								<div class="input">
-									<select>
-										<option value="Alba">Alba</option>
-										<option value="Arad">Arad</option>
-										<option value="Arges">Bacau</option>
-										<option value="Bihor">Bihor</option>
-										<option value="Botosani">Botosani</option>
-										<option value="Brasov">Brasov</option>
-										<option value="Braila">Braila</option>
-										<option value="Buzau">Buzau</option>
-										<option value="Calarasi">Calarasi</option>
-										<option value="Cluj">Cluj</option>
-										<option value="Constanta">Constanta</option>
-										<option value="Dolj">Dolj</option>
-										<option value="Galati">Galati</option>
-										<option value="Hunedoara">Hunedoara</option>
-										<option value="Iasi" selected="selected">Iasi</option>
-										<option value="Mures">Mures</option>
-										<option value="Olt">Olt</option>
-										<option value="Suceava">Suceava</option>
-										<option value="Timis">Timis</option>
-									</select>
+									<input type="text" name="judet" value="<?php echo ucfirst(@$user['judet']); ?>">
 								</div>
 							</div>
 							<div class="linieForm">
@@ -54,7 +34,7 @@
 									Adresa
 								</div>
 								<div class="input">
-									<input type="text" name="adresa" value="<?php echo @$user['adresa']; ?>">
+									<input type="text" name="adresa" value="<?php echo ucfirst(@$user['adresa']); ?>">
 								</div>
 							</div>
 							<div class="linieForm">

@@ -11,8 +11,12 @@
 					</form>
 				</div>
 				<div class="login">
-					<div class="buton"><a href="./login">Log-in</a></div>
-					<a href="./contnou">Sign up</a>
+					<?php if ( $user['id']>0 ){ ?>
+						<div class="buton"><a href="./contultau">Contul Tau</a></div>
+					<?php }else{ ?>
+						<div class="buton"><a href="./login">Log-in</a></div>
+						<a href="./contnou">Sign up</a>					
+					<?php } ?>
 				</div>
 			</div>
 		</div>
