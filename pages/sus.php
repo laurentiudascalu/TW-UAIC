@@ -10,8 +10,12 @@
 						<button><i class="fas fa-search"></i></button>
 					</form>
 				</div>
-				<div class="login">
-					<?php if ( $user['id']>0 ){ ?>
+				<div class="<?php echo (($user['id']>0)?'autentificat':'login'); ?>" >
+					<?php if ( $user['id']>0 ){ 
+						 $nume = array(); 
+						 $nume = explode(' ',$user['nume_complet']);
+						 $nume = $nume[0]; ?>
+						<span class="numeLogin" title="<?php echo $user['nume_complet']; ?>">Salut, <?php echo $nume; ?> </span>
 						<div class="buton"><a href="./contultau">Contul Tau</a></div>
 					<?php }else{ ?>
 						<div class="buton"><a href="./login">Log-in</a></div>
