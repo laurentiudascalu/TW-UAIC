@@ -4,76 +4,76 @@
 	require('./mod.php');
 
 	require('./autentificare.php');
-	 
-	if(strstr($url,'/delogare')){
+	if($urlSeg[2]=='delogare'){
 		$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
 		$result = mysqli_query($conn, $sql);
 		unset($_COOKIE['login']);
     	setcookie('login', '', time() - 3600);
 		header('Location: '.$base_url);
 		exit;
-	}elseif(strstr($url,'/despre')){
+	}elseif($urlSeg[2]=='despre'){
 		require('./pages/despre.php');
-	}elseif(strstr($url,'/adaugaintrebare')){
+	}elseif($urlSeg[2]=='adaugaintrebare'){
 		$categorii=getCategorii();
 		$taguri=getTaguri();
 		$activ='adaugaintrebare';
 		require('./pages/adaugaintrebare.php');
-	}elseif(strstr($url,'/contnou')){
+	}elseif($urlSeg[2]=='contnou'){
 		require('./pages/contnou.php');
-	}elseif(strstr($url,'/contultau')){
+	}elseif($urlSeg[2]=='contultau'){
 		$activCont = 'contultau';
 		require('./pages/contultau.php');
-	}elseif(strstr($url,'/editraspuns')){
+	}elseif($urlSeg[2]=='editraspuns'){
 		require('./pages/editraspuns.php');
-	}elseif(strstr($url,'/edit')){
+	}elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
-	}elseif(strstr($url,'/inceputuri')){
+	}elseif($urlSeg[2]=='inceputuri'){
 		require('./pages/inceputuri.php');
-	}elseif(strstr($url,'/insigneletale')){
+	}elseif($urlSeg[2]=='insigneletale'){
 		$activCont = 'insigneletale';
 		require('./pages/insigneletale.php');
-	}elseif(strstr($url,'/insigne')){
+	}elseif($urlSeg[2]=='insigne'){
 		$activ='insigne';
 		require('./pages/insigne.php');
-	}elseif(strstr($url,'/intrebareAdmin')){
+	}elseif($urlSeg[2]=='intrebareAdmin'){
 		$activ='intrebareAdmin';
 		require('./pages/intrebareAdmin.php');
-	}elseif(strstr($url,'/intrebare')){
+	}elseif($urlSeg[2]=='intrebare'){
 		require('./pages/intrebare.php');
-	}elseif(strstr($url,'/intrebariletale')){
+	}elseif($urlSeg[2]=='intrebariletale'){
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
-	}elseif(strstr($url,'/intrebari')){
+	}elseif($urlSeg[2]=='intrebari'){
 		$activ='intrebari';
+		$intrebari=getIntrebari();
 		require('./pages/intrebari.php');
-	}elseif(strstr($url,'/login')){
+	}elseif($urlSeg[2]=='login'){
 		require('./pages/login.php');
-	}elseif(strstr($url,'/planuriviitor')){
+	}elseif($urlSeg[2]=='planuriviitor'){
 		require('./pages/planuriviitor.php');
-	}elseif(strstr($url,'/profil')){
+	}elseif($urlSeg[2]=='profil'){
 		$activCont = 'profil';
 		require('./pages/profil.php');
-	}elseif(strstr($url,'/raspunsuriletale')){
+	}elseif($urlSeg[2]=='raspunsuriletale'){
 		$activCont = 'raspunsuriletale';
 		require('./pages/raspunsuriletale.php');
-	}elseif(strstr($url,'/reparola')){
+	}elseif($urlSeg[2]=='reparola'){
 		require('./pages/reparola.php');
-	}elseif(strstr($url,'/statisticiletale')){
+	}elseif($urlSeg[2]=='statisticiletale'){
 		$activCont = 'statisticiletale';
 		require('./pages/statisticiletale.php');
-	}elseif(strstr($url,'/statistici')){
+	}elseif($urlSeg[2]=='statistici'){
 		$activ='statistici';
 		require('./pages/statistici.php');
-	}elseif(strstr($url,'/stergecont')){
+	}elseif($urlSeg[2]=='stergecont'){
 		$activCont = 'stergecont';
 		require('./pages/stergecont.php');
-	}elseif(strstr($url,'/taskindeplinite')){
+	}elseif($urlSeg[2]=='taskindeplinite'){
 		require('./pages/taskindeplinite.php');
-	}elseif(strstr($url,'/top')){
+	}elseif($urlSeg[2]=='top'){
 		$activ='top';
 		require('./pages/top.php');
-	}elseif(strstr($url,'/p')){
+	}elseif($urlSeg[2]=='p'){
 		require('./p.php');
 	}else{
 		require('./pages/home.php');
