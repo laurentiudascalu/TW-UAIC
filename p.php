@@ -6,10 +6,10 @@
 		if(mysqli_num_rows($result)>0){
 			$corect=0;
 		}
-		if(!(strlen($_POST['telefon'])>9 && is_numeric($_POST['telefon']))){
+		if(!(validTel($_POST['telefon']))){
 			$corect=0;
 		}
-		if(!(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL))){
+		if(!(validMail($_POST['mail']))){
 			$corect=0;
 		}
 		if($corect){
@@ -48,7 +48,9 @@
 				header('Location: '.$base_url.'contultau');
 				exit;
 		}else{
-			echo 'Exista deja aceste date';
+				$_SESSION["mesaj"]='Datele introduse nu sunt corecte';
+				header('Location: '.$base_url.'contultau');
+				exit;			
 		}
 	}
 
@@ -77,7 +79,9 @@
 			header('Location: '.$base_url.'contultau');
 			exit;
 		}else{
-			echo 'Eroare';
+				$_SESSION["mesaj"]='Datele introduse sunt gresite';
+				header('Location: '.$base_url.'contultau');
+				exit;	
 		}
 	}
 
@@ -90,6 +94,14 @@
 			$ok=1;
 		}elseif($ok==1){
 			$sql.=", `oras`='".$_POST['oras']."'";
+		}
+		}
+		if(isset($_POST['judet']) && $_POST['judet']!=''){
+			if($ok==0){
+			$sql = "UPDATE useri SET `judet`='".$_POST['judet']."'";
+			$ok=1;
+		}elseif($ok==1){
+			$sql.=", `judet`='".$_POST['judet']."'";
 		}
 		}
 		if(isset($_POST['adresa']) && $_POST['adresa']!=''){
@@ -143,7 +155,7 @@
 		$sql.=" where `id`='".$user['id']."'";
 
 		if ($conn->query($sql) === TRUE) {
-		    echo "Profil modificat";
+			$_SESSION["mesaj"]='Profil modificat cu succes';
 		} else {
 		    echo "Error updating record: " . $conn->error;
 		}
@@ -157,12 +169,12 @@
 				$sql = "UPDATE useri SET `del`='1' where `id`='".$user['id']."'";
 		}
 		if ($conn->query($sql) === TRUE) {
-		    echo "Cont sters";
+		    $_SESSION["mesaj"]='Cont sters cu succes';
+			header('Location: '.$base_url);
+			exit;
 		} else {
 		    echo "Error updating record: " . $conn->error;
 		}
-		header('Location: '.$base_url.'stergecont');
-		exit;
 	}
 
 	if(isset($_POST['login'])){
@@ -202,4 +214,31 @@
 		header('Location: '.$base_url); //redirect in intrebare
 		exit;
 	}
+	if(isset($_POST['signup'])){
+		$sql1="";
+		$sql="select * from useri where (`mail`='".$_POST['mail']."' or `tel`='".$_POST['telefon']."')";
+		$result = mysqli_query($conn, $sql);
+ 		if(mysqli_num_rows($result) == 0){
+			if((isset($_POST['nume']) && $_POST['nume']!='') && (isset($_POST['mail']) && $_POST['mail']!='') && (isset($_POST['telefon']) && $_POST['telefon']!='') && (isset($_POST['parola']) && $_POST['parola']!='') && (isset($_POST['reparola']) && $_POST['reparola']!='')){
+				if(validMail($_POST['mail']) && validTel($_POST['telefon']) && validParola($_POST['parola'])==1 && $_POST['parola']==$_POST['reparola']){
+					$sql1="INSERT INTO `useri`(`mail`, `parola`, `nume_complet`, `tel`) VALUES ('".$_POST['mail']."','".$_POST['parola']."', '".$_POST['nume']."', '".$_POST['telefon']."')";
+				}
+			}
+		}else{
+			    $_SESSION["mesaj"]='Exista cont cu aceste';
+				header('Location: '.$base_url.'contnou');
+				exit;			
+		}
+		if ($conn->query($sql1) === TRUE) {
+		    $_SESSION["mesaj"]='Cont creat cu succes';
+			header('Location: '.$base_url);
+			exit;
+		} else {
+		    $_SESSION["mesaj"]='Datele introduse sunt gresite';
+			header('Location: '.$base_url.'contnou');
+			exit;
+		}
+	}
+	
+
  ?>

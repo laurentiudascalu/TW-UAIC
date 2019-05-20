@@ -60,4 +60,25 @@
 		$sql.=" order by `ordine` ASC, `tag` ASC";
 		return mysqli_query($conn,$sql);
 	}
+	function validMail($mail = ''){
+		if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+	function validTel($tel = ''){
+		if(strlen($tel)>9 && is_numeric($tel)){
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	function validParola($pas = ''){
+		if(strlen($pas)>=6){
+			return 1;
+		}else {
+			return 0;
+		}
+	}	
 ?>
