@@ -818,3 +818,18 @@ footer{
     top: 3px;
     cursor: pointer;
 }
+.numeLogin {
+    padding-top: 5px;
+    padding-bottom: 1px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    height: 20px;
+}
+.autentificat {
+    text-align: center;
+    width: 140px;
+}
