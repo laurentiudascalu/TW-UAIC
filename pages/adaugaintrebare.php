@@ -7,6 +7,14 @@
 				<div class="box full">
 					<div class="formular">
 						<form action="./p" method="post">
+							<div class="linieForm <?php echo (($user['id']==0)?'':'pt0'); ?>">
+								<div class="label">
+									<?php if($user['id']==0){ echo 'Mail'; }?>
+								</div>
+								<div class="input">
+									<input type="<?php echo (($user['id']==0)?'mail':'hidden'); ?>" name="mail" value="<?php echo (($user['id']==0)?'':$user['mail']); ?>">
+								</div>
+							</div>
 							<div class="linieForm">
 								<div class="label">
 									Titlu
