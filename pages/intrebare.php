@@ -38,7 +38,7 @@
 							</div>
 							<div class="linieForm">
 								<div class="input">
-									<textarea class="height170" placeholder="Adauga un raspuns.."></textarea> 
+									<textarea name="raspuns" class="height170" placeholder="Adauga un raspuns.."></textarea> 
 								</div>
 							</div>
 							<div class="linieForm">
