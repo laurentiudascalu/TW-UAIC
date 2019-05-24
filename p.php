@@ -268,13 +268,21 @@
 	if(isset($_POST['addintrebare'])){
 		$sql="";
 		$gresit=0;
-		if(isset($_POST['titlu']) && $_POST['titlu']!='' && isset($_POST['categorie']) && $_POST['categorie']!='' && isset($_POST['taguri']) && $_POST['taguri']!='' && isset($_POST['intrebare']) && $_POST['intrebare']!=''){
-				$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `titlu`, `text`, `data`) 
+		$corect=1;
+		if(!(isset($_POST['mail']) && $_POST['mail']!='' && validMail($_POST['mail']))){
+			$corect=0;
+			$gresit=2;
+		}
+		if(!(isset($_POST['titlu']) && $_POST['titlu']!='' && isset($_POST['categorie']) && $_POST['categorie']!='' && isset($_POST['taguri']) && $_POST['taguri']!='' && isset($_POST['intrebare']) && $_POST['intrebare']!='')){
+				$corect=0;
+				$gresit=1;
+		}
+		if($corect){
+			$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `titlu`, `text`, `data`) 
 				VALUES ('".$user['id']."', '".$_POST['categorie']."', '".$_POST['titlu']."', '".$_POST['intrebare']."', '".date('Y-m-d H:i:s')."')";
-		}else{
-			$gresit=1;
 		}
 		if($gresit==0){
+			$_SESSION["mesaj"]='Intrebare introdusa cu succes';
 			$result = mysqli_query($conn, $sql);
 			header('Location: '.$base_url); //redirect in intrebare
 			exit;			
@@ -282,8 +290,43 @@
 			$_SESSION["mesaj"]='Datele introduse nu sunt valide';
 			header('Location: '.$base_url.'adaugaintrebare');
 			exit;				
+		}elseif($gresit==2){
+			$_SESSION["mesaj"]='Mailul introdus nu este valid';
+			header('Location: '.$base_url.'adaugaintrebare');
+			exit;				
 		}
+	}
 
+	if(isset($_POST['adaugaraspuns'])){
+		$sql="";
+		$gresit=0;
+		$corect=1;
+		if(!(isset($_POST['mail']) && $_POST['mail']!='' && validMail($_POST['mail']))){
+			$corect=0;
+			$gresit=2;
+		}
+		if(!(isset($_POST['raspuns']) && $_POST['raspuns']!='')){
+			$corect=0;
+			$gresit=1;
+		}
+		if($corect){
+			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `data`, `acceptat`, `text`) 
+				VALUES ('".$user['id']."', '1', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
+		}
+		if($gresit==0){
+			$_SESSION["mesaj"]='Raspus adaugat cu succes';
+			$result = mysqli_query($conn, $sql);
+			header('Location: '.$base_url); //redirect in intrebare
+			exit;			
+		}elseif($gresit==1){
+			$_SESSION["mesaj"]='Raspunsul introdus nu este valid';
+			header('Location: '.$base_url.'intrebare');
+			exit;				
+		}elseif($gresit==2){
+			$_SESSION["mesaj"]='Mailul introdus nu este valid';
+			header('Location: '.$base_url.'intrebare');
+			exit;				
+		}
 	}
 	if(isset($_POST['signup'])){
 		$sql1="";
