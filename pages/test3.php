@@ -5,7 +5,7 @@
     <title>Flexbox 0 — starting code</title>
   </head>
   <body>
-    <?php $dirname = "./public/pics";
+    <?php $dirname = "<?php echo $base_url; ?>public/pics";
      $images = glob($dirname."/*.png");
      foreach($images as $image) { 
      echo '<img src="'.$image.'" /><br />'; 

@@ -11,7 +11,7 @@
 						<div class="textSus">
 							Data : 19-03-2019 22:30 <br/>
 							Utilizator : Dulceanu Marina <br/>
-							Intrebare : <a href="./intrebareAdmin">Un site pentru paleta de culori?</a><br/>
+							Intrebare : <a href="<?php echo $base_url; ?>intrebareAdmin">Un site pentru paleta de culori?</a><br/>
 						</div>
 						<div class="linieForm">
 							<div class="input">

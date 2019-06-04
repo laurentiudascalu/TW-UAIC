@@ -69,7 +69,7 @@
 			</form>
 			<?php if(mysqli_num_rows($intrebari) > 0){
 		     while($row = mysqli_fetch_assoc($intrebari)) { ?>
-				<a href="./intrebare" class="intrebare">
+				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
 					<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
 					<div class="intrebareContent">
 						<?php echo $row['text']; ?>

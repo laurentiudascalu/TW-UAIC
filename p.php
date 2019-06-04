@@ -116,6 +116,7 @@
 		header('Location: '.$base_url.'contultau');
 		exit;
 	}
+
 	if(isset($_POST['complprofil'])){
 		$sql='';
 		$ok=0;
@@ -265,6 +266,7 @@
 			exit;				
 		}
 	}
+
 	if(isset($_POST['addintrebare'])){
 		$sql="";
 		$gresit=0;
@@ -328,6 +330,7 @@
 			exit;				
 		}
 	}
+	
 	if(isset($_POST['signup'])){
 		$sql1="";
 		$gresit=0;

@@ -6,7 +6,7 @@
 			<div class="titluContent">
 				<span>Intrebarile tale</span>
 			</div>
-			<a href="./intrebare" class="intrebare">
+			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -27,7 +27,7 @@
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
 			</a>
-			<a href="./intrebare" class="intrebare">
+			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -48,7 +48,7 @@
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
 			</a>
-			<a href="./intrebare" class="intrebare">
+			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -69,7 +69,7 @@
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
 			</a>
-			<a href="./intrebare" class="intrebare">
+			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>
@@ -90,7 +90,7 @@
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
 			</a>
-			<a href="./intrebare" class="intrebare">
+			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
 				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
 				<div class="intrebareContent">
 					Buna ziua!<br/>

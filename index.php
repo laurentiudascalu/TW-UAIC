@@ -38,8 +38,14 @@
 	}elseif($urlSeg[2]=='intrebareAdmin'){
 		$activ='intrebareAdmin';
 		require('./pages/intrebareAdmin.php');
-	}elseif($urlSeg[2]=='intrebare'){
-		require('./pages/intrebare.php');
+	}elseif($urlSeg[2]=='intrebare' && $urlSeg[3]!=''){
+		$intr=getIntrebari($urlSeg[3]);
+		if(mysqli_num_rows($intr) > 0){
+			$intrebare = mysqli_fetch_assoc($intr);
+			require('./pages/intrebare.php');
+		}else{
+			goHome($base_url);
+		}				
 	}elseif($urlSeg[2]=='intrebariletale'){
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
@@ -75,9 +81,11 @@
 		require('./pages/top.php');
 	}elseif($urlSeg[2]=='p'){
 		require('./p.php');
-	}else{
+	}elseif($urlSeg[2]==''){
 		require('./pages/home.php');
 		exit;
+	}else{
+		goHome($base_url);
 	}
 	exit;
 ?>

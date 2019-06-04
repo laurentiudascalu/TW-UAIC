@@ -7,11 +7,9 @@
 					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
 					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 				</div>
-				<div class="titluPrimaPagina intrebareTitluPagina areLike">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
+				<div class="titluPrimaPagina intrebareTitluPagina areLike"><?php echo $intrebare['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $intrebare['nume_complet']; ?></div>
 				<div class="intrebarePaginaContent mb20">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
+					<?php echo $intrebare['text']; ?>
 				</div>
 				<div class="intrebareHashtaguri mb20">
 					<div class="hashtag">#test</div>
@@ -27,7 +25,8 @@
 						<i class="fas fa-plus"></i>Adauga un raspuns
 					</div>
 					<div class="formular">
-						<form action="./p" method="post">
+						<form action="<?php echo $base_url; ?>p" method="post">
+							<input type="hidden" name="id_intrebare" value="<?php echo $intrebare['id']; ?>">
 							<div class="linieForm <?php echo (($user['id']==0)?'':'pt0'); ?>">
 								<div class="label">
 									<?php if($user['id']==0){ echo 'Mail'; }?>

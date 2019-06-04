@@ -24,8 +24,8 @@
 						 	</div>
 						</div>
 						<div class="linieForm">
-							<a href="./login">Log-in</a>
-							<a href="./contnou">Cont nou</a>
+							<a href="<?php echo $base_url; ?>login">Log-in</a>
+							<a href="<?php echo $base_url; ?>contnou">Cont nou</a>
 						</div>
 					</form>
 				</div>

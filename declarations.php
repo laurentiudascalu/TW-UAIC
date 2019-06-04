@@ -8,8 +8,14 @@
 	$url       = $_SERVER['REQUEST_URI'];
 	$activ     = 'home';
 	$activCont = '';
+	$path	   = getcwd();
 
 	$urlSeg=explode('/',$url);
+	for ($i=0; $i < 8; $i++) { 
+		if(!isset($urlSeg)){
+			$urlSeg[$i]='';
+		}
+	}
 	$urlLast=$urlSeg[count($urlSeg)-1];
 
 	$servername = "localhost";

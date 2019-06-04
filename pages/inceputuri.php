@@ -6,7 +6,7 @@
 				<div class="titluPaginiS">
 					<span>Inceputuri</span>
 					<div class="buton">
-						<a href="./edit"><i class="fas fa-pencil-alt"></i>Edit</a>
+						<a href="<?php echo $base_url; ?>edit"><i class="fas fa-pencil-alt"></i>Edit</a>
 					</div>
 				</div>
 				<div class="continutPaginaStatica">

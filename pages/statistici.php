@@ -36,8 +36,8 @@
 							</tr>
 						</tbody>
 					</table>
-					<img src="./public/pics/statistici.png" alt="statistici" class="imagineFull">
-					<img src="./public/pics/statistici2.png" alt="statistici2" class="imagineFull">
+					<img src="<?php echo $base_url; ?>public/pics/statistici.png" alt="statistici" class="imagineFull">
+					<img src="<?php echo $base_url; ?>public/pics/statistici2.png" alt="statistici2" class="imagineFull">
 				</div>
 			</div>
 		</div>

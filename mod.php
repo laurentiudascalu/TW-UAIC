@@ -87,7 +87,7 @@
 		$sql.='left join `useri` 	as `C` on `A`.`id_user` = `C`.`id`';
 		$ok=0;
 		if($id!=-1){
-			$sql.="where `id`='".$id."'";
+			$sql.="where `A`.`id`='".$id."'";
 			$ok=1;
 		}
 		if ($id_cat!=-1){
@@ -171,5 +171,10 @@
 		}else {
 			return 0;
 		}
+	}
+	function goHome($base_url, $mesaj='Nu aveti acces in aceasta zona.'){
+		$_SESSION["mesaj"]=$mesaj;
+		header('Location: '.$base_url);
+		exit;
 	}	
 ?>

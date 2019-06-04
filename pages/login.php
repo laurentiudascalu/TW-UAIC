@@ -7,7 +7,7 @@
 					<i class="fas fa-user"></i> Intra in cont 
 				</div>
 				<div class="formular">
-					<form action="./p" method="post">
+					<form action="<?php echo $base_url; ?>p" method="post">
 						<div class="linieForm">
 							<div class="label">
 								Mail
@@ -32,8 +32,8 @@
 						 	</div>
 						</div>
 						<div class="linieForm">
-							<a href="./reparola">Recuperare Parola</a>
-							<a href="./contnou">Cont nou</a>
+							<a href="<?php echo $base_url; ?>reparola">Recuperare Parola</a>
+							<a href="<?php echo $base_url; ?>contnou">Cont nou</a>
 						</div>
 					</form>
 				</div>

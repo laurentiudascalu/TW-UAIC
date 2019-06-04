@@ -52,7 +52,7 @@
 						<div class="intrebareAdmin">
 							<a class="accepta"><i class="fas fa-check"></i> Accepta</a>
 							<a class="refuza"><i class="fas fa-times"></i> Refuza</a>
-							<a class="veziInfo" href="./editraspuns"><i class="far fa-eye"></i> Vezi</a>
+							<a class="veziInfo" href="<?php echo $base_url; ?>editraspuns"><i class="far fa-eye"></i> Vezi</a>
 						</div>
 						<div class="likeDislike">
 							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
@@ -69,7 +69,7 @@
 						<div class="intrebareAdmin">
 							<a class="accepta"><i class="fas fa-check"></i> Accepta</a>
 							<a class="refuza"><i class="fas fa-times"></i> Refuza</a>
-							<a class="veziInfo" href="./editraspuns"><i class="far fa-eye"></i> Vezi</a>
+							<a class="veziInfo" href="<?php echo $base_url; ?>editraspuns"><i class="far fa-eye"></i> Vezi</a>
 						</div>
 						<div class="likeDislike">
 							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
@@ -86,7 +86,7 @@
 						<div class="intrebareAdmin">
 							<a class="accepta"><i class="fas fa-check"></i> Accepta</a>
 							<a class="refuza"><i class="fas fa-times"></i> Refuza</a>
-							<a class="veziInfo" href="./editraspuns"><i class="far fa-eye"></i> Vezi</a>
+							<a class="veziInfo" href="<?php echo $base_url; ?>editraspuns"><i class="far fa-eye"></i> Vezi</a>
 						</div>
 						<div class="likeDislike">
 							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
@@ -103,7 +103,7 @@
 						<div class="intrebareAdmin">
 							<a class="accepta"><i class="fas fa-check"></i> Accepta</a>
 							<a class="refuza"><i class="fas fa-times"></i> Refuza</a>
-							<a class="veziInfo" href="./editraspuns"><i class="far fa-eye"></i> Vezi</a>
+							<a class="veziInfo" href="<?php echo $base_url; ?>editraspuns"><i class="far fa-eye"></i> Vezi</a>
 						</div>
 						<div class="likeDislike">
 							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>

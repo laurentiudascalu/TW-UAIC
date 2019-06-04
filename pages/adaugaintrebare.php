@@ -6,7 +6,7 @@
 				<div class="titluPrimaPagina"><i class="fas fa-plus fontRosu"></i>Adauga intrebare</div>
 				<div class="box full">
 					<div class="formular">
-						<form action="./p" method="post">
+						<form action="<?php echo $base_url; ?>p" method="post">
 							<div class="linieForm <?php echo (($user['id']==0)?'':'pt0'); ?>">
 								<div class="label">
 									<?php if($user['id']==0){ echo 'Mail'; }?>

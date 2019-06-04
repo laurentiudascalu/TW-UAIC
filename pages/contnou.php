@@ -7,7 +7,7 @@
 					<i class="fas fa-user"></i> Creeaza-ti cont nou
 				</div>
 				<div class="formular">
-					<form action="./p" method="post">
+					<form action="<?php echo $base_url; ?>p" method="post">
 						<div class="linieForm">
 							<div class="label">
 								Nume complet
@@ -56,8 +56,8 @@
 						 	</div>
 						</div>
 						<div class="linieForm">
-							<a href="./reparola">Recuperare Parola</a>
-							<a href="./login">Log-in</a>
+							<a href="<?php echo $base_url; ?>reparola">Recuperare Parola</a>
+							<a href="<?php echo $base_url; ?>login">Log-in</a>
 						</div>
 					</form>
 				</div>

@@ -15,21 +15,21 @@
  				<div class="linkuri">
  					<div class="titluBoxJos">Link-uri utile</div>
  					<div class="continutBoxJos">
- 						<a href="./home">Home</a>
- 						<a href="./contultau">Contul tau</a>
- 						<a href="./intrebari">Intrebari</a>
- 						<a href="./top">Top</a>
- 						<a href="./insigne">Insigne</a>
- 						<a href="./statistici">Statistici</a>
+ 						<a href="<?php echo $base_url; ?>home">Home</a>
+ 						<a href="<?php echo $base_url; ?>contultau">Contul tau</a>
+ 						<a href="<?php echo $base_url; ?>intrebari">Intrebari</a>
+ 						<a href="<?php echo $base_url; ?>top">Top</a>
+ 						<a href="<?php echo $base_url; ?>insigne">Insigne</a>
+ 						<a href="<?php echo $base_url; ?>statistici">Statistici</a>
  					</div>
  				</div>
  				<div class="linkuri">
  					<div class="titluBoxJos">Despre noi</div>
  					<div class="continutBoxJos">
- 						<a href="./despre">Despre</a>
- 						<a href="./inceputuri">Inceputuri</a>
- 						<a href="./planuriviitor">Planuri de viitor</a>
- 						<a href="./taskindeplinite">Task-uri indeplinite</a>
+ 						<a href="<?php echo $base_url; ?>despre">Despre</a>
+ 						<a href="<?php echo $base_url; ?>inceputuri">Inceputuri</a>
+ 						<a href="<?php echo $base_url; ?>planuriviitor">Planuri de viitor</a>
+ 						<a href="<?php echo $base_url; ?>taskindeplinite">Task-uri indeplinite</a>
  					</div>
  				</div>
  			</div>
