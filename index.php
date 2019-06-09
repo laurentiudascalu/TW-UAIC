@@ -46,9 +46,39 @@
 		}else{
 			goHome($base_url);
 		}				
+	}elseif($urlSeg[2]=='like'){
+		$intrebare=0;
+		$raspuns=0;
+		$dislike=0;
+		if($urlSeg[3]=='intrebare'){
+			$intrebare=$urlSeg[4];
+		}elseif($urlSeg[3]=='raspuns'){
+			$raspuns=$urlSeg[4];
+		}
+		if(@$urlSeg[5]==1){
+			$dislike=1;
+		}
+		$sql1="select * from `likeuri` where `id_intrebare`='".$intrebare."' and `id_raspuns`='".$raspuns."' and `id_user`='".$user['id']."'";
+		$result = mysqli_query($conn, $sql1);
+		if(mysqli_num_rows($result) == 0){
+			$sql= "INSERT INTO `likeuri` (`id_user`, `id_intrebare`, `id_raspuns`, `dislike`) VALUES ('".$user['id']."','"
+				.$intrebare."', '".$raspuns."','".$dislike."')";
+			$result1 = mysqli_query($conn, $sql);}
+		header('Location: '.$_SERVER['HTTP_REFERER']);
+		exit;		
 	}elseif($urlSeg[2]=='intrebariletale'){
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
+	}elseif($urlSeg[2]=='stergeintrebare'){
+		$sql="UPDATE `intrebari` set `del` = `1` where `id` = '".$urlSeg[3]."'";
+		$sql1="UPDATE `raspunsuri` set `del` = `1` where `id_intrebare` = '".$urlSeg[3]."'";
+		$sql2="UPDATE `likeuri` set `del` = `1` where `id_intrebare` ='".$urlSeg[3]."'";
+		$sql2="UPDATE `tag_leg` set `del` = `1` where `id_intrebare` ='".$urlSeg[3]."'";
+		print_r($sql);print_r($sql1);print_r($sql2);exit;
+	}elseif($urlSeg[2]=='stergeraspuns'){
+		$sql="UPDATE `raspunsuri` set `del` = `1` where `id` = '".$urlSeg[3]."'";
+		$sql1="UPDATE `likeuri` set `del` = `1` where `id_raspuns` ='".$urlSeg[3]."'";
+		print_r($sql);print_r($sql1);exit;
 	}elseif($urlSeg[2]=='intrebari'){
 		$activ='intrebari';
 		$intrebari=getIntrebari();

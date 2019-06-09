@@ -313,10 +313,10 @@
 		}
 		if($corect){
 			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `data`, `acceptat`, `text`) 
-				VALUES ('".$user['id']."', '1', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
+				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
 		}
 		if($gresit==0){
-			$_SESSION["mesaj"]='Raspus adaugat cu succes';
+			$_SESSION["mesaj"]='Raspuns adaugat cu succes';
 			$result = mysqli_query($conn, $sql);
 			header('Location: '.$base_url); //redirect in intrebare
 			exit;			
