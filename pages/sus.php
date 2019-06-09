@@ -28,7 +28,7 @@
 	<nav>
 		<div class="container">
 			<div class="meniu">
-				<a href="<?php echo $base_url; ?>" <?php if($activ=='home'){ ?> class="activ" <?php } ?> >Home</a>
+				<a href="<?php echo $base_url; ?>" <?php if($activ=='home'){ ?> class="activ" <?php } ?> >Acasa</a>
 				<a href="<?php echo $base_url; ?>intrebari" <?php if($activ=='intrebari'){ ?> class="activ" <?php } ?> >Intrebari</a>
 				<a href="<?php echo $base_url; ?>top" <?php if($activ=='top'){ ?> class="activ" <?php } ?> >Top</a>
 				<a href="<?php echo $base_url; ?>statistici" <?php if($activ=='statistici'){ ?> class="activ" <?php } ?> >Statistici</a>
