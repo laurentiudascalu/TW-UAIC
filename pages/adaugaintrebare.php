@@ -41,7 +41,7 @@
 									Selecteaza hashtag-uri
 								</div>
 								<div class="input">
-									<select name="taguri" class="height140" multiple>
+									<select name="taguri[]" class="height140" multiple>
 										<?php if(mysqli_num_rows($taguri) > 0){
 											while($row = mysqli_fetch_assoc($taguri)) { ?>
 												<option value="<?php echo $row['id']; ?>"><?php echo '#'.$row['tag']; ?></option>
