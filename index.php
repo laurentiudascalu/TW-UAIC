@@ -32,6 +32,20 @@
 	}elseif($urlSeg[2]=='insigneletale'){
 		$activCont = 'insigneletale';
 		require('./pages/insigneletale.php');
+	}elseif($urlSeg[2]=='editintrebare'){
+		$categorii=getCategorii();
+		$taguriIntrebare=getTaguri(-1,'',$urlSeg[3]);
+		$taguri=getTaguri();
+		if(mysqli_num_rows($taguriIntrebare) > 0){
+		    while($row = mysqli_fetch_assoc($taguriIntrebare)) {
+		    	$taguriSelectate[]=$row['id'];
+		    }
+		}
+		$intr=getIntrebari($urlSeg[3]);
+		if(mysqli_num_rows($intr) > 0){
+			$intrebare = mysqli_fetch_assoc($intr);
+		}
+		require('./pages/editintrebare.php');
 	}elseif($urlSeg[2]=='insigne'){
 		$activ='insigne';
 		require('./pages/insigne.php');
@@ -42,6 +56,8 @@
 		$intr=getIntrebari($urlSeg[3]);
 		if(mysqli_num_rows($intr) > 0){
 			$intrebare = mysqli_fetch_assoc($intr);
+			$raspunsuri = getRaspunsuri(-1,'',$intrebare['id']);
+			$taguri = getTaguri(-1,'',$intrebare['id']);
 			require('./pages/intrebare.php');
 		}else{
 			goHome($base_url);
@@ -67,6 +83,7 @@
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 		exit;		
 	}elseif($urlSeg[2]=='intrebariletale'){
+		$intrebari=getIntrebari(-1,$user['id']);
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
 	}elseif($urlSeg[2]=='stergeintrebare'){

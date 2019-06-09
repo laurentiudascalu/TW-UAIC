@@ -1,4 +1,92 @@
 <?php
+	function getNrLike($dislike = 0, $id_intrebare=-1, $id_raspuns=-1, $id_user=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql="select COUNT(*) as `nr` FROM `likeuri` ";
+		$sql.="where `dislike`='".$dislike."' ";
+		$sql.="and `del`='0' ";
+		if($id_intrebare!=-1){
+			$sql.="and `id_intrebare`='".$id_intrebare."' ";
+		}
+		if($id_raspuns!=-1){
+			$sql.="and `id_raspuns`='".$id_raspuns."' ";
+		}
+		if($id_user!=-1){
+			$sql.="and `id_user`='".$id_user."' ";
+		}
+		return mysqli_query($conn,$sql);
+	}
+
+	function getRaspunsuri($id = -1, $mail_user='', $id_intrebare=-1, $acceptat=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql="select `A`.*, COUNT(`L1`.`id_raspuns`) as `nrLike`, COUNT(`L2`.`id_raspuns`) as `nrDisLike`, IF(`C`.`nume_complet`!='', `C`.`nume_complet`, 'Anonim') as `nume_complet` from `raspunsuri` as A ";
+		$sql.=' left join `useri` 	    as `C` on `A`.`id_user` = `C`.`id` AND `C`.`del` = 0 ';
+		$sql.=" left join `likeuri` 	as `L1` on `L1`.`id_raspuns` = `A`.`id` AND `L1`.`dislike` = '0' AND `L1`.`del` = 0 ";
+		$sql.=" left join `likeuri` 	as `L2` on `L2`.`id_raspuns` = `A`.`id` AND `L2`.`dislike` = '1'  AND `L2`.`del` = 0 ";
+		$ok=0;
+		if($id!=-1){
+			$sql.="where `id`='".$id."'";
+			$ok=1;
+		}
+		if ($mail_user!=''){
+			if($ok==1){
+				$sql.=" and `A`.`mail`='".$mail_user."'";
+			}else{
+				$sql.="where `A`.`mail`='".$mail_user."'";
+				$ok=1;
+			}
+		}
+		if ($id_intrebare!=-1){
+			if($ok==1){
+				$sql.=" and `A`.`id_intrebare`='".$id_intrebare."'";
+			}else{
+				$sql.="where `A`.`id_intrebare`='".$id_intrebare."'";
+				$ok=1;
+			}
+		}
+		if ($acceptat!=-1){
+			if($ok==1){
+				$sql.=" and `A`.`acceptat`='".$acceptat."'";
+			}else{
+				$sql.="where `A`.`acceptat`='".$acceptat."'";
+				$ok=1;
+			}
+		}
+		if($ok==1){
+			$sql.=" and `A`.`del`='0'";
+		}else{
+			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
+		$sql.=" group by `A`.`id` ";
+		$sql.=" order by `acceptat` DESC, `data` DESC";
+		//echo $sql; exit;
+		return mysqli_query($conn,$sql);
+	}
+
 	function getCategorii($id = -1, $nume = ''){
 		$servername = "localhost";
 		$username = "root";
@@ -24,7 +112,14 @@
 				$sql.=" and `categorie`='".$nume."'";
 			}else{
 				$sql.="where `categorie`='".$nume."'";
+				$ok=1;
 			}
+		}
+		if($ok==1){
+			$sql.=" and `del`='0'";
+		}else{
+			$sql.="where `del`='0'";
+			$ok=1;
 		}
 		$sql.=" order by `ordine` ASC, `categorie` ASC";
 		return mysqli_query($conn,$sql);
@@ -44,8 +139,8 @@
 		    exit;
 		}
 
-		$sql='select `A`.* from `taguri` as `A`';
-		$sql.='left join `tag_leg` as `B` on `A`.`id` = `B`.`id_tag`';
+		$sql='select `A`.* from `taguri` as `A` ';
+		$sql.="left join `tag_leg` as `B` on `A`.`id` = `B`.`id_tag` AND `B`.`del` = '0' ";
 		$ok=0;
 		if($id!=-1){
 			$sql.="where `A`.`id`='".$id."'";
@@ -56,6 +151,7 @@
 				$sql.=" and `A`.`tag`='".$nume."'";
 			}else{
 				$sql.="where `A`.`tag`='".$nume."'";
+				$ok=1;
 			}
 		}
 		if ($id_intrebare!=-1){
@@ -63,7 +159,15 @@
 				$sql.=" and `B`.`id_intrebare`='".$id_intrebare."'";
 			}else{
 				$sql.="where `B`.`id_intrebare`='".$id_intrebare."'";
+				$ok=1;
 			}
+		}
+
+		if($ok==1){
+			$sql.=" and `A`.`del`='0'";
+		}else{
+			$sql.="where `A`.`del`='0'";
+			$ok=1;
 		}
 		$sql.=" group by `A`.`id` ";
 		$sql.=" order by `ordine` ASC, `tag` ASC";
@@ -83,10 +187,10 @@
 		    exit;
 		}
 
-		$sql="select `A`.*, `C`.`nume_complet`, COUNT(`D`.`id`) as 'nr_raspunsuri' from `intrebari` as `A`";
-		$sql.=' left join `tag_leg` 	as `B` on `A`.`id` 		= `B`.`id_intrebare`';
-		$sql.=' left join `useri` 	    as `C` on `A`.`id_user` = `C`.`id`';
-		$sql.=' left join `raspunsuri` 	as `D` on `A`.`id` 		= `D`.`id_intrebare` AND `D`.`acceptat` = 1 ';
+		$sql="select `A`.*, IF(`C`.`nume_complet`!='', `C`.`nume_complet`, 'Anonim') as `nume_complet`, COUNT(`D`.`id`) as 'nr_raspunsuri' from `intrebari` as `A`";
+		$sql.=' left join `tag_leg` 	as `B` on `A`.`id` 		= `B`.`id_intrebare` AND `B`.`del` = 0';
+		$sql.=' left join `useri` 	    as `C` on `A`.`id_user` = `C`.`id` AND `C`.`del` = 0';
+		$sql.=' left join `raspunsuri` 	as `D` on `A`.`id` 		= `D`.`id_intrebare` AND `D`.`acceptat` = 1 AND `D`.`del` = 0 ';
 		$ok=0;
 		if($id!=-1){
 			$sql.="where `A`.`id`='".$id."'";
@@ -134,9 +238,9 @@
 		}
 		if ($search!=''){
 			if($ok==1){
-				$sql.=" and (`A`.`titlu` LIKE %'".$search."'% OR `A`.`text` LIKE %'".$search."'%)";
+				$sql.=" and (`A`.`titlu` LIKE '%".$search."%' OR `A`.`text` LIKE '%".$search."%')";
 			}else{
-				$sql.="where (`A`.`titlu` LIKE %'".$search."'% OR `A`.`text` LIKE %'".$search."'%)";
+				$sql.="where (`A`.`titlu` LIKE '%".$search."%' OR `A`.`text` LIKE '%".$search."%')";
 				$ok=1;
 			}
 		}
@@ -154,13 +258,24 @@
 				$ok=1;
 			}
 		}
+		if($ok==1){
+			$sql.=" and `A`.`del`='0'";
+		}else{
+			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
 		$sql.=" group by `A`.`id` ";
 		if(!empty($limit)){
 			$sql.=" limit ".$limit[0].", ".$limit[1];
 		}
 		$sql.=" order by `".$order[0]."` ".$order[1];
+
+		$sqlBig='SELECT `sqlMic`.*, COUNT(`L1`.`id_intrebare`) as `nrLike`, COUNT(`L2`.`id_intrebare`) as `nrDisLike` FROM ( '.$sql.' ) AS `sqlMic` ';
+		$sqlBig.=" left join `likeuri` 	as `L1` on `L1`.`id_intrebare` = `sqlMic`.`id` AND `L1`.`dislike` = '0' AND `L1`.`del` = 0 ";
+		$sqlBig.=" left join `likeuri` 	as `L2` on `L2`.`id_intrebare` = `sqlMic`.`id` AND `L2`.`dislike` = '1' AND `L2`.`del` = 0 ";
+		$sqlBig.=" group by `sqlMic`.`id` ";
 		//echo $sql; exit;
-		return mysqli_query($conn,$sql);
+		return mysqli_query($conn,$sqlBig);
 	}
 	function validMail($mail = ''){
 		if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
