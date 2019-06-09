@@ -48,7 +48,7 @@
 		$sql.=" left join `likeuri` 	as `L2` on `L2`.`id_raspuns` = `A`.`id` AND `L2`.`dislike` = '1'  AND `L2`.`del` = 0 ";
 		$ok=0;
 		if($id!=-1){
-			$sql.="where `id`='".$id."'";
+			$sql.="where `A`.`id`='".$id."'";
 			$ok=1;
 		}
 		if ($mail_user!=''){
@@ -268,13 +268,13 @@
 		if(!empty($limit)){
 			$sql.=" limit ".$limit[0].", ".$limit[1];
 		}
-		$sql.=" order by `".$order[0]."` ".$order[1];
 
 		$sqlBig='SELECT `sqlMic`.*, COUNT(`L1`.`id_intrebare`) as `nrLike`, COUNT(`L2`.`id_intrebare`) as `nrDisLike` FROM ( '.$sql.' ) AS `sqlMic` ';
 		$sqlBig.=" left join `likeuri` 	as `L1` on `L1`.`id_intrebare` = `sqlMic`.`id` AND `L1`.`dislike` = '0' AND `L1`.`del` = 0 ";
 		$sqlBig.=" left join `likeuri` 	as `L2` on `L2`.`id_intrebare` = `sqlMic`.`id` AND `L2`.`dislike` = '1' AND `L2`.`del` = 0 ";
 		$sqlBig.=" group by `sqlMic`.`id` ";
-		//echo $sql; exit;
+		$sqlBig.=" order by `".$order[0]."` ".$order[1];
+		//echo $sqlBig; exit;
 		return mysqli_query($conn,$sqlBig);
 	}
 	function validMail($mail = ''){
@@ -299,8 +299,21 @@
 		}
 	}
 	function goHome($base_url, $mesaj='Nu aveti acces in aceasta zona.'){
-		$_SESSION["mesaj"]=$mesaj;
+		if($mesaj!=''){
+			$_SESSION["mesaj"]=$mesaj;
+		}
 		header('Location: '.$base_url);
+		exit;
+	}	
+	function goBack($base_url, $mesaj='Nu aveti acces in aceasta zona.'){
+		$link='Location: '.$base_url;
+		if(isset($_SERVER['HTTP_REFERER'])){
+			$link='Location: '.$_SERVER['HTTP_REFERER'];
+		}
+		if($mesaj!=''){
+			$_SESSION["mesaj"]=$mesaj;
+		}
+		header($link);
 		exit;
 	}	
 ?>
