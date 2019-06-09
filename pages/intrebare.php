@@ -4,8 +4,8 @@
 		<div class="content">
 			<div class="boxPrimaPagina">
 				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
+					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>"><div class="like"><i class="fas fa-thumbs-up"></i> 590</div></a>
+					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>/1"><div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div></a>
 				</div>
 				<div class="titluPrimaPagina intrebareTitluPagina areLike"><?php echo $intrebare['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $intrebare['nume_complet']; ?></div>
 				<div class="intrebarePaginaContent mb20">
@@ -57,7 +57,7 @@
 							Unul pe care il folosesc eu, si il recomand este <a href="https://coolors.co/" target="_blank">coolors.co</a>
 						</div>
 						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
+							<a href="<?php echo $base_url; ?>like/raspuns/1"><div class="like"><i class="fas fa-thumbs-up"></i> 10</div></a>
 							<div class="dislike"><i class="fas fa-thumbs-down"></i> 1</div>
 						</div>
 					</div>

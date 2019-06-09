@@ -84,8 +84,8 @@
 						<div class="hashtag">#MySQL</div>
 					</div>
 					<div class="likeDislike">
-						<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-						<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> 590</div>
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
 					</div>
 				</a>
 		<?php } } ?>

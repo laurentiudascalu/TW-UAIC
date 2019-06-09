@@ -51,7 +51,7 @@
 						</div>
 						<div class="intrebareAdmin">
 							<a class="accepta"><i class="fas fa-check"></i> Accepta</a>
-							<a class="refuza"><i class="fas fa-times"></i> Refuza</a>
+							<a href="<?php echo $base_url; ?>stergeintrebare/<?php echo $intrebare['id']; ?>" class="refuza"><i class="fas fa-times"></i> Refuza</a>
 							<a class="veziInfo" href="<?php echo $base_url; ?>editraspuns"><i class="far fa-eye"></i> Vezi</a>
 						</div>
 						<div class="likeDislike">
