@@ -306,6 +306,35 @@
 		}
 	}
 
+	if(isset($_POST['editintrebare'])){
+		$sql="";
+		$gresit=0;
+		$corect=1;
+		if(!(isset($_POST['titlu']) && $_POST['titlu']!='' && isset($_POST['categorie']) && $_POST['categorie']!='' && isset($_POST['taguri']) && isset($_POST['intrebare']) && $_POST['intrebare']!='')){
+				$corect=0;
+				$gresit=1;
+		}
+		if($corect){
+			$sql="UPDATE `intrebari` set `titlu`= '".$_POST['titlu']."',`id_categorie`= '".$_POST['categorie']."', `text`= '".$_POST['intrebare']."' where `id` ='".$_POST['id_intrebare']."'";
+			$result = mysqli_query($conn, $sql);
+			$sql1 ="UPDATE `tag_leg` set `del`=1 where `id_intrebare`= '".$_POST['id_intrebare']."'";
+			$result1 = mysqli_query($conn, $sql1);
+			foreach ($_POST['taguri'] as $row) {
+				$sql2="INSERT INTO `tag_leg`(`id_intrebare`, `id_tag`) VALUES ('".$_POST['id_intrebare']."', '".$row."')";
+				$result2=mysqli_query($conn,$sql2);
+			}
+		}
+		if($gresit==0){
+			$_SESSION["mesaj"]='Intrebare editata cu succes';
+			header('Location: '.$base_url.'intrebare/'.$_POST['id_intrebare']); //redirect in intrebare
+			exit;			
+		}elseif($gresit==1){
+			$_SESSION["mesaj"]='Datele introduse nu sunt valide';
+			header('Location: '.$base_url);
+			exit;				
+		}
+	}
+
 	if(isset($_POST['adaugaraspuns'])){
 		$sql="";
 		$gresit=0;
@@ -319,12 +348,12 @@
 			$gresit=1;
 		}
 		if($corect){
-			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `data`, `acceptat`, `text`) 
-				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
+			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `mail`, `data`, `acceptat`, `text`) 
+				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".$_POST['mail']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
+			$result = mysqli_query($conn, $sql);
 		}
 		if($gresit==0){
 			$_SESSION["mesaj"]='Raspuns adaugat cu succes';
-			$result = mysqli_query($conn, $sql);
 			header('Location: '.$base_url); //redirect in intrebare
 			exit;			
 		}elseif($gresit==1){
