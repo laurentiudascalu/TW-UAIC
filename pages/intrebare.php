@@ -4,21 +4,18 @@
 		<div class="content">
 			<div class="boxPrimaPagina">
 				<div class="likeDislike">
-					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>"><div class="like"><i class="fas fa-thumbs-up"></i> 590</div></a>
-					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>/1"><div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div></a>
+					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>"><div class="like"><i class="fas fa-thumbs-up"></i> <?php echo $intrebare['nrLike']; ?></div></a>
+					<a href="<?php echo $base_url; ?>like/intrebare/<?php echo $intrebare['id']; ?>/1"><div class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $intrebare['nrDisLike']; ?></div></a>
 				</div>
 				<div class="titluPrimaPagina intrebareTitluPagina areLike"><?php echo $intrebare['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $intrebare['nume_complet']; ?></div>
 				<div class="intrebarePaginaContent mb20">
 					<?php echo $intrebare['text']; ?>
 				</div>
 				<div class="intrebareHashtaguri mb20">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
+					<?php if(mysqli_num_rows($taguri) > 0){
+		     		while($row = mysqli_fetch_assoc($taguri)) { ?>
+		     			<div class="hashtag">#<?php echo $row['tag']; ?></div>
+		     		<?php } } ?>
 				</div>
 				<div class="box full">
 					<div class="titluBox pl40">
@@ -49,54 +46,20 @@
 					</div>
 				</div>
 				<div class="contentPrimaPagina pt30">
-					<div class="intrebare nohover raspunsCorect">
-						<div class="titluRaspuns areLike">La 19-03-2019 22:30 - <span class="redC">Dulceanu Marina </span> a scris:</div>
-						<div class="intrebareContent">
-							Salut!<br/>
-							Sunt o multime de site-uri bune care te pot ajuta.<br/>
-							Unul pe care il folosesc eu, si il recomand este <a href="https://coolors.co/" target="_blank">coolors.co</a>
+					<?php if(mysqli_num_rows($raspunsuri) > 0){
+		     		while($row = mysqli_fetch_assoc($raspunsuri)) { ?>
+		     			<div class="intrebare nohover <?php echo (($row['acceptat']==1)?'raspunsCorect':''); ?>">
+							<div class="titluRaspuns areLike"><?php echo $row['data']; ?> - <span class="redC"><?php echo $row['nume_complet']; ?> </span> a scris:</div>
+							<br/>
+							<div class="intrebareContent">
+								<?php echo $row['text']; ?>
+							</div>
+							<div class="likeDislike">
+								<a href="<?php echo $base_url.'like/raspuns/'.$row['id']; ?>" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></a>
+								<a href="<?php echo $base_url.'like/raspuns/'.$row['id'].'/1'; ?>" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></a>
+							</div>
 						</div>
-						<div class="likeDislike">
-							<a href="<?php echo $base_url; ?>like/raspuns/1"><div class="like"><i class="fas fa-thumbs-up"></i> 10</div></a>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 1</div>
-						</div>
-					</div>
-					<div class="intrebare nohover">
-						<div class="titluRaspuns">La 19-03-2019 22:30 - <span class="redC">Dulceanu Marina </span> a scris:</div>
-						<div class="intrebareContent">
-							Salut!<br/>
-							Sunt o multime de site-uri bune care te pot ajuta.<br/>
-							Unul pe care il folosesc eu, si il recomand este <a href="https://coolors.co/" target="_blank">coolors.co</a>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 1</div>
-						</div>
-					</div>
-					<div class="intrebare nohover">
-						<div class="titluRaspuns">La 19-03-2019 22:30 - <span class="redC">Dulceanu Marina </span> a scris:</div>
-						<div class="intrebareContent">
-							Salut!<br/>
-							Sunt o multime de site-uri bune care te pot ajuta.<br/>
-							Unul pe care il folosesc eu, si il recomand este <a href="https://coolors.co/" target="_blank">coolors.co</a>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 1</div>
-						</div>
-					</div>
-					<div class="intrebare nohover">
-						<div class="titluRaspuns">La 19-03-2019 22:30 - <span class="redC">Dulceanu Marina </span> a scris:</div>
-						<div class="intrebareContent">
-							Salut!<br/>
-							Sunt o multime de site-uri bune care te pot ajuta.<br/>
-							Unul pe care il folosesc eu, si il recomand este <a href="https://coolors.co/" target="_blank">coolors.co</a>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 10</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 1</div>
-						</div>
-					</div>
+		     		<?php } } ?>
 				</div>
 			</div>
 		</div>

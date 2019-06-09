@@ -53,24 +53,22 @@
 				</div>
 			</form>
 			<?php if($intrebari!=FALSE && mysqli_num_rows($intrebari) > 0){
-		     while($row = mysqli_fetch_assoc($intrebari)) { ?>
+		     while($row = mysqli_fetch_assoc($intrebari)) {
+		     	$taguri = getTaguri(-1,'',$row['id']); ?>
 				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
 					<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
 					<div class="intrebareContent">
 						<?php echo $row['text']; ?>
 					</div>
 					<div class="intrebareHashtaguri">
-						<div class="hashtag">#test</div>
-						<div class="hashtag">#deTest</div>
-						<div class="hashtag">#PHP</div>
-						<div class="hashtag">#HTML</div>
-						<div class="hashtag">#CSS</div>
-						<div class="hashtag">#JS</div>
-						<div class="hashtag">#MySQL</div>
+						<?php if(mysqli_num_rows($taguri) > 0){
+		     			while($row2 = mysqli_fetch_assoc($taguri)) { ?>
+		     				<div class="hashtag">#<?php echo $row2['tag']; ?></div>
+		     			<?php } } ?>
 					</div>
 					<div class="likeDislike">
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></div>
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></div>
 					</div>
 				</a>
 		<?php } ?>

@@ -6,111 +6,42 @@
 			<div class="titluContent">
 				<span>Intrebarile tale</span>
 			</div>
-			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-				<div class="intrebareContent">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-				</div>
-				<div class="intrebareHashtaguri">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
-				</div>
-				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-				</div>
-			</a>
-			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-				<div class="intrebareContent">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-				</div>
-				<div class="intrebareHashtaguri">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
-				</div>
-				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-				</div>
-			</a>
-			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-				<div class="intrebareContent">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-				</div>
-				<div class="intrebareHashtaguri">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
-				</div>
-				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-				</div>
-			</a>
-			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-				<div class="intrebareContent">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-				</div>
-				<div class="intrebareHashtaguri">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
-				</div>
-				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-				</div>
-			</a>
-			<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-				<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-				<div class="intrebareContent">
-					Buna ziua!<br/>
-					Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-					Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-				</div>
-				<div class="intrebareHashtaguri">
-					<div class="hashtag">#test</div>
-					<div class="hashtag">#deTest</div>
-					<div class="hashtag">#PHP</div>
-					<div class="hashtag">#HTML</div>
-					<div class="hashtag">#CSS</div>
-					<div class="hashtag">#JS</div>
-					<div class="hashtag">#MySQL</div>
-				</div>
-				<div class="likeDislike">
-					<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-					<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-				</div>
-			</a>
+			<?php if($intrebari!=FALSE && mysqli_num_rows($intrebari) > 0){
+		     while($row = mysqli_fetch_assoc($intrebari)) {
+		     	$taguri = getTaguri(-1,'',$row['id']); ?>
+				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
+					<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
+					<div class="intrebareContent">
+						<?php echo $row['text']; ?>
+					</div>
+					<div class="intrebareHashtaguri">
+						<?php if(mysqli_num_rows($taguri) > 0){
+		     			while($row2 = mysqli_fetch_assoc($taguri)) { ?>
+		     				<div class="hashtag">#<?php echo $row2['tag']; ?></div>
+		     			<?php } } ?>
+					</div>
+					<div class="likeDislike">
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></div>
+						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></div>
+					</div>
+				</a>
+		<?php } ?>
+			<div class="butoanePaginare">
+				<a href="" title="Prima Pagina"><i class="fas fa-angle-double-left"></i><i class="fas fa-angle-double-left"></i></a>
+				<a href="" title="Pagina Anterioara"><i class="fas fa-angle-double-left"></i></a>
+				<select class="inputSelect w40 mr5">
+					<option value="1" selected="selected">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				<a href="" title="Pagina Urmatoare"><i class="fas fa-angle-double-right"></i></a>
+				<a href="" title="Ultima Pagina"><i class="fas fa-angle-double-right"></i><i class="fas fa-angle-double-right"></i></a>
+			</div>
+		<?php }else{ ?>
+			<span class="intrebare">
+				<div class="intrebareContent">Nu s-au gasit rezultate pentru filtrarea aplicata.</div>
+			</span>
+		<?php } ?>
 		</div>
  	</div>
 <?php include('./pages/jos.php'); ?>
