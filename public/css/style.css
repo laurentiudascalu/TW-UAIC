@@ -480,6 +480,13 @@ footer{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+.win{
+    background-color: #35b3d6;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
 .accepta{
     background-color: #19647e;
     color: #fff;
