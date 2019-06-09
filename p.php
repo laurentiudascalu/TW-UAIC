@@ -275,17 +275,24 @@
 			$corect=0;
 			$gresit=2;
 		}
-		if(!(isset($_POST['titlu']) && $_POST['titlu']!='' && isset($_POST['categorie']) && $_POST['categorie']!='' && isset($_POST['taguri']) && $_POST['taguri']!='' && isset($_POST['intrebare']) && $_POST['intrebare']!='')){
+		if(!(isset($_POST['titlu']) && $_POST['titlu']!='' && isset($_POST['categorie']) && $_POST['categorie']!='' && isset($_POST['taguri']) && isset($_POST['intrebare']) && $_POST['intrebare']!='')){
 				$corect=0;
 				$gresit=1;
 		}
 		if($corect){
-			$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `titlu`, `text`, `data`) 
-				VALUES ('".$user['id']."', '".$_POST['categorie']."', '".$_POST['titlu']."', '".$_POST['intrebare']."', '".date('Y-m-d H:i:s')."')";
+			$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `mail`, `titlu`, `text`, `data`) 
+				VALUES ('".$user['id']."', '".$_POST['categorie']."', '".$_POST['mail']."','".$_POST['titlu']."', '".$_POST['intrebare']."', '".date('Y-m-d H:i:s')."')";
+			$result = mysqli_query($conn, $sql);
+			$sql1="SELECT `id` from `intrebari` order by id DESC limit 1";
+			$result1 = mysqli_query($conn, $sql1);
+			$id_intrebare=mysqli_fetch_assoc($result1);
+			foreach ($_POST['taguri'] as $row) {
+				$sql2="INSERT INTO `tag_leg`(`id_intrebare`, `id_tag`) VALUES ('".$id_intrebare['id']."', '".$row."')";
+				$result2=mysqli_query($conn,$sql2);
+			}
 		}
 		if($gresit==0){
 			$_SESSION["mesaj"]='Intrebare introdusa cu succes';
-			$result = mysqli_query($conn, $sql);
 			header('Location: '.$base_url); //redirect in intrebare
 			exit;			
 		}elseif($gresit==1){
