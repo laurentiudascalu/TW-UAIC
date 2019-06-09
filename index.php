@@ -4,6 +4,7 @@
 	require('./mod.php');
 
 	require('./autentificare.php');
+
 	if($urlSeg[2]=='delogare'){
 		$sql="UPDATE login SET `del` = '1' WHERE `cookie` = '".$_COOKIE['login']."'";
 		$result = mysqli_query($conn, $sql);
@@ -23,16 +24,26 @@
 	}elseif($urlSeg[2]=='contultau'){
 		$activCont = 'contultau';
 		require('./pages/contultau.php');
-	}elseif($urlSeg[2]=='editraspuns'){
+	}elseif($urlSeg[2]=='editraspuns' && $urlSeg[3]!=''){
+		$rasp=getRaspunsuri($urlSeg[3]);
+		if(mysqli_num_rows($rasp) > 0){
+			$raspuns = mysqli_fetch_assoc($rasp);
+		}
 		require('./pages/editraspuns.php');
 	}elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
+	}elseif($urlSeg[2]=='intrebariacc'){
+		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
+		require('./pages/intrebariacc.php');
+	}elseif($urlSeg[2]=='raspunsuriacc'){
+		$intrebari=getRaspunsuri(-1, '', -1, -1,  0);
+		require('./pages/raspunsuriacc.php');
 	}elseif($urlSeg[2]=='inceputuri'){
 		require('./pages/inceputuri.php');
 	}elseif($urlSeg[2]=='insigneletale'){
 		$activCont = 'insigneletale';
 		require('./pages/insigneletale.php');
-	}elseif($urlSeg[2]=='editintrebare'){
+	}elseif($urlSeg[2]=='editintrebare' && $urlSeg[3]!=''){
 		$categorii=getCategorii();
 		$taguriIntrebare=getTaguri(-1,'',$urlSeg[3]);
 		$taguri=getTaguri();
@@ -52,6 +63,14 @@
 	}elseif($urlSeg[2]=='intrebareAdmin'){
 		$activ='intrebareAdmin';
 		require('./pages/intrebareAdmin.php');
+	}elseif($urlSeg[2]=='accIntrebare' && $urlSeg[3]!=''){
+		$sql="UPDATE `intrebari` set `acc`= '1' where `id`='".$urlSeg[3]."'";
+		$result = mysqli_query($conn, $sql);
+		goBack($base_url,'Ai acceptat cu succes');
+	}elseif($urlSeg[2]=='accRaspuns' && $urlSeg[3]!=''){
+		$sql="UPDATE `raspunsuri` set `acc`= '1' where `id`='".$urlSeg[3]."'";
+		$result = mysqli_query($conn, $sql);
+		goBack($base_url,'Ai acceptat cu succes');
 	}elseif($urlSeg[2]=='intrebare' && $urlSeg[3]!=''){
 		$intr=getIntrebari($urlSeg[3]);
 		if(mysqli_num_rows($intr) > 0){
@@ -124,6 +143,7 @@
 		$activCont = 'profil';
 		require('./pages/profil.php');
 	}elseif($urlSeg[2]=='raspunsuriletale'){
+		$raspunsuri = getRaspunsuri(-1,$user['mail']);
 		$activCont = 'raspunsuriletale';
 		require('./pages/raspunsuriletale.php');
 	}elseif($urlSeg[2]=='reparola'){

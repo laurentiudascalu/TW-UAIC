@@ -268,6 +268,10 @@
 	}
 
 	if(isset($_POST['addintrebare'])){
+		$acc=0;
+		if($user['id']>0){
+			$acc=1;
+		}
 		$sql="";
 		$gresit=0;
 		$corect=1;
@@ -280,8 +284,8 @@
 				$gresit=1;
 		}
 		if($corect){
-			$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `mail`, `titlu`, `text`, `data`) 
-				VALUES ('".$user['id']."', '".$_POST['categorie']."', '".$_POST['mail']."','".$_POST['titlu']."', '".$_POST['intrebare']."', '".date('Y-m-d H:i:s')."')";
+			$sql="INSERT INTO `intrebari`(`id_user`, `id_categorie`, `mail`, `titlu`, `text`, `data`, `acc`) 
+				VALUES ('".$user['id']."', '".$_POST['categorie']."', '".$_POST['mail']."','".$_POST['titlu']."', '".$_POST['intrebare']."', '".date('Y-m-d H:i:s')."','".$acc."')";
 			$result = mysqli_query($conn, $sql);
 			$sql1="SELECT `id` from `intrebari` order by id DESC limit 1";
 			$result1 = mysqli_query($conn, $sql1);
@@ -326,16 +330,43 @@
 		}
 		if($gresit==0){
 			$_SESSION["mesaj"]='Intrebare editata cu succes';
-			header('Location: '.$base_url.'intrebare/'.$_POST['id_intrebare']); //redirect in intrebare
+			header('Location: '.$base_url.'intrebare/'.$_POST['id_intrebare']); 
 			exit;			
 		}elseif($gresit==1){
 			$_SESSION["mesaj"]='Datele introduse nu sunt valide';
-			header('Location: '.$base_url);
+			header('Location: '.$base_url.'editintrebare/'.$_POST['id_intrebare']);
+			exit;				
+		}
+	}
+
+	if(isset($_POST['editraspuns'])){
+		$sql="";
+		$gresit=0;
+		$corect=1;
+		if(!(isset($_POST['raspuns']) && $_POST['raspuns']!='')){
+				$corect=0;
+				$gresit=1;
+		}
+		if($corect){
+			$sql="UPDATE `raspunsuri` set `text`= '".$_POST['raspuns']."' where `id` ='".$_POST['id_raspuns']."'";
+			$result = mysqli_query($conn, $sql);
+		}
+		if($gresit==0){
+			$_SESSION["mesaj"]='Raspuns editat cu succes';
+			header('Location: '.$base_url.'intrebare/'.$_POST['id_intrebare']); 
+			exit;			
+		}elseif($gresit==1){
+			$_SESSION["mesaj"]='Datele introduse nu sunt valide';
+			header('Location: '.$base_url.'editraspuns/'.$_POST['id_raspuns']);
 			exit;				
 		}
 	}
 
 	if(isset($_POST['adaugaraspuns'])){
+		$acc=0;
+		if($user['id']>0){
+			$acc=1;
+		}
 		$sql="";
 		$gresit=0;
 		$corect=1;
@@ -348,8 +379,8 @@
 			$gresit=1;
 		}
 		if($corect){
-			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `mail`, `data`, `acceptat`, `text`) 
-				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".$_POST['mail']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."')";
+			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `mail`, `data`, `acceptat`, `text` ,`acc`) 
+				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".$_POST['mail']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."','".$acc."')";
 			$result = mysqli_query($conn, $sql);
 		}
 		if($gresit==0){
