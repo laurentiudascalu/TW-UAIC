@@ -80,8 +80,24 @@
 		$sql1="UPDATE `likeuri` set `del` = `1` where `id_raspuns` ='".$urlSeg[3]."'";
 		print_r($sql);print_r($sql1);exit;
 	}elseif($urlSeg[2]=='intrebari'){
+		$categorii=getCategorii();
+		$taguri=getTaguri();
+		$categorii=getCategorii();
 		$activ='intrebari';
-		$intrebari=getIntrebari();
+		if(isset($_POST['ordonare'])){
+			$order=array('data','DESC');
+			if($_POST['ordonare']==1){
+				$order=array('data','ASC');
+			}elseif($_POST['ordonare']==2){
+				$order=array('nr_raspunsuri','ASC');
+			}elseif($_POST['ordonare']==3){
+				$order=array('nr_raspunsuri','DESC');
+			}
+			$intrebari=getIntrebari(-1,-1,$_POST['categorie'],$_POST['tag'],$_POST['status'],$_POST['cuvant'],$_POST['dela'],$_POST['la'],array(),$order);
+		}else{
+			$intrebari=getIntrebari();
+		}
+		
 		require('./pages/intrebari.php');
 	}elseif($urlSeg[2]=='login'){
 		require('./pages/login.php');

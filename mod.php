@@ -65,6 +65,7 @@
 				$sql.="where `B`.`id_intrebare`='".$id_intrebare."'";
 			}
 		}
+		$sql.=" group by `A`.`id` ";
 		$sql.=" order by `ordine` ASC, `tag` ASC";
 		return mysqli_query($conn,$sql);
 	}
@@ -82,9 +83,10 @@
 		    exit;
 		}
 
-		$sql='select `A`.*, `C`.`nume_complet` from `intrebari` as `A`';
-		$sql.='left join `tag_leg` 	as `B` on `A`.`id` 		= `B`.`id_intrebare`';
-		$sql.='left join `useri` 	as `C` on `A`.`id_user` = `C`.`id`';
+		$sql="select `A`.*, `C`.`nume_complet`, COUNT(`D`.`id`) as 'nr_raspunsuri' from `intrebari` as `A`";
+		$sql.=' left join `tag_leg` 	as `B` on `A`.`id` 		= `B`.`id_intrebare`';
+		$sql.=' left join `useri` 	    as `C` on `A`.`id_user` = `C`.`id`';
+		$sql.=' left join `raspunsuri` 	as `D` on `A`.`id` 		= `D`.`id_intrebare` AND `D`.`acceptat` = 1 ';
 		$ok=0;
 		if($id!=-1){
 			$sql.="where `A`.`id`='".$id."'";
@@ -95,6 +97,7 @@
 				$sql.=" and `A`.`id_categorie`='".$id_cat."'";
 			}else{
 				$sql.="where `A`.`id_categorie`='".$id_cat."'";
+				$ok=1;
 			}
 		}
 		if ($id_user!=-1){
@@ -102,6 +105,7 @@
 				$sql.=" and `A`.`id_user`='".$id_user."'";
 			}else{
 				$sql.="where `A`.`id_user`='".$id_user."'";
+				$ok=1;
 			}
 		}
 		if ($rezolvata!=-1){
@@ -109,6 +113,7 @@
 				$sql.=" and `A`.`rezolvata`='".$rezolvata."'";
 			}else{
 				$sql.="where `A`.`rezolvata`='".$rezolvata."'";
+				$ok=1;
 			}
 		}
 		if ($de_la!=''){
@@ -116,6 +121,7 @@
 				$sql.=" and `A`.`data` >= '".$de_la."'";
 			}else{
 				$sql.="where `A`.`data` >= '".$de_la."'";
+				$ok=1;
 			}
 		}
 		if ($pana_la!=''){
@@ -123,6 +129,7 @@
 				$sql.=" and `A`.`data` <= '".$pana_la."'";
 			}else{
 				$sql.="where `A`.`data` <= '".$pana_la."'";
+				$ok=1;
 			}
 		}
 		if ($search!=''){
@@ -130,6 +137,7 @@
 				$sql.=" and (`A`.`titlu` LIKE %'".$search."'% OR `A`.`text` LIKE %'".$search."'%)";
 			}else{
 				$sql.="where (`A`.`titlu` LIKE %'".$search."'% OR `A`.`text` LIKE %'".$search."'%)";
+				$ok=1;
 			}
 		}
 		if ($id_tag!=-1){
@@ -143,12 +151,15 @@
 				$sql.=" and `B`.`id_tag` in '".$textTag."'";
 			}else{
 				$sql.="where `B`.`id_tag` in '".$textTag."'";
+				$ok=1;
 			}
 		}
+		$sql.=" group by `A`.`id` ";
 		if(!empty($limit)){
 			$sql.=" limit ".$limit[0].", ".$limit[1];
 		}
 		$sql.=" order by `".$order[0]."` ".$order[1];
+		//echo $sql; exit;
 		return mysqli_query($conn,$sql);
 	}
 	function validMail($mail = ''){
