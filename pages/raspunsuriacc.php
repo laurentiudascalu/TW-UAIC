@@ -5,26 +5,31 @@
 			<div class="titluPrimaPagina">
 				<span>Raspunsuri neacceptate</span>
 			</div>
-			<?php if($intrebari!=FALSE && mysqli_num_rows($intrebari) > 0){
-		     while($row = mysqli_fetch_assoc($intrebari)) {
-		     	$taguri = getTaguri(-1,'',$row['id']); ?>
-				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
-					<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
+			<?php if($raspunsuri!=FALSE && mysqli_num_rows($raspunsuri) > 0){
+		     while($row = mysqli_fetch_assoc($raspunsuri)) { ?>
+				<div class="intrebare nohover <?php echo (($row['acceptat'])?'raspunsCorect':''); ?> <?php echo (($user['admin']>0)?'pb50':''); ?>">
+					<div class="titluRaspuns areLike">La <?php echo $row['data']; ?> - <span class="redC"><?php echo $row['nume_complet']; ?> </span> a scris:</div>
+					<br/>
 					<div class="intrebareContent">
-						<?php echo $row['text']; ?>
+							<?php echo $row['text']; ?>
 					</div>
-					<div class="intrebareHashtaguri">
-						<?php if(mysqli_num_rows($taguri) > 0){
-		     			while($row2 = mysqli_fetch_assoc($taguri)) { ?>
-		     				<div class="hashtag">#<?php echo $row2['tag']; ?></div>
-		     			<?php } } ?>
-					</div>
-					<div class="likeDislike">
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></div>
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></div>
-					</div>
-				</a>
-		<?php } ?>
+					<?php if($user['id'] > 0){ ?>
+						<div class="likeDislike">
+							<a href="<?php echo $base_url.'like/raspuns/'.$row['id']; ?>" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></a>
+							<a href="<?php echo $base_url.'like/raspuns/'.$row['id'].'/1'; ?>" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></a>
+						</div>
+					<?php } ?>
+					<?php if($user['admin'] > 0){ ?>
+						<div class="intrebareAdmin">
+							<?php if($row['acc'] == 0){ ?>
+								<div onclick="if(confirm('Esti sigur ca vrei sa accepti raspunsul?')){ window.location.replace('<?php echo $base_url."accRaspuns/".$row['id']; ?>'); } return false;" class="accepta"><i class="fas fa-check"></i> Accepta</div>
+									<?php } ?>
+							<div onclick="if(confirm('Esti sigur ca vrei sa stergi raspunsul?')){ window.location.replace('<?php echo $base_url."stergeraspuns/".$row['id']; ?>'); } return false;" class="refuza"><i class="fas fa-times"></i> Sterge</div>
+							<div onclick="window.location.replace('<?php echo $base_url.'editraspuns/'.$row['id']; ?>'); return false;" class="veziInfo"><i class="far fa-eye"></i> Edit</div>
+						</div>
+					<?php } ?>
+				</div>
+			<?php } ?>
 			<div class="butoanePaginare">
 				<a href="" title="Prima Pagina"><i class="fas fa-angle-double-left"></i><i class="fas fa-angle-double-left"></i></a>
 				<a href="" title="Pagina Anterioara"><i class="fas fa-angle-double-left"></i></a>

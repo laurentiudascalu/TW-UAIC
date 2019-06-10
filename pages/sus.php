@@ -33,7 +33,7 @@
 				<a href="<?php echo $base_url; ?>top" <?php if($activ=='top'){ ?> class="activ" <?php } ?> >Top</a>
 				<a href="<?php echo $base_url; ?>statistici" <?php if($activ=='statistici'){ ?> class="activ" <?php } ?> >Statistici</a>
 				<a href="<?php echo $base_url; ?>insigne" <?php if($activ=='insigne'){ ?> class="activ" <?php } ?> >Insigne</a>
-				<a href="<?php echo $base_url; ?>intrebareAdmin" <?php if($activ=='intrebareAdmin'){ ?> class="activ" <?php } ?> >Admin</a>
+				<a href="<?php echo $base_url; ?>intrebareAdmin" <?php if($activ=='intrebareAdmin' || $activ== 'editintrebare' || $activ=='editraspuns'){ ?> class="activ" <?php } ?> >Admin</a>
 				<a href="<?php echo $base_url; ?>adaugaintrebare" class="adaugaIntrebare <?php if($activ=='adaugaintrebare'){ echo 'activ'; } ?>" >+ <span class="none">Adauga intrebare</span></a>
 			</div>
 		</div>

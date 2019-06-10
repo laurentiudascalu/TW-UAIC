@@ -7,22 +7,10 @@
 				<div class="box full">
 					<div class="formular">
 						<form action="<?php echo $base_url; ?>p" method="post">
-							<div class="linieForm">
-								<div class="label">
-									Postat de: 
-								</div>
-								<div class="input">
-									<?php echo $intrebare['nume_complet'];?>
- 								</div>
-							</div>
-							<div class="linieForm">
-								<div class="label">
-									Data: 
-								</div>
-								<div class="input">
-									<?php echo $intrebare['data']; ?>
-								</div>
-							</div>
+							<div class="textSus">
+ 								<span> Data: <b><?php echo $intrebare['data']; ?></b></span>
+ 								<span>Postat de: <b><?php echo $intrebare['nume_complet'];?></b></span> 
+ 							</div>
 							<div class="linieForm">
 								<div class="label">
 									Titlu: 
