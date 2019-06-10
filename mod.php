@@ -28,7 +28,7 @@
 		return mysqli_query($conn,$sql);
 	}
 
-	function getRaspunsuri($id = -1, $mail_user='', $id_intrebare=-1, $acceptat=-1){
+	function getRaspunsuri($id = -1, $mail_user='', $id_intrebare=-1, $acceptat=-1, $acc=1){
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -79,6 +79,12 @@
 			$sql.=" and `A`.`del`='0'";
 		}else{
 			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
+		if($ok==1){
+			$sql.=" and `A`.`acc`='".$acc."'";
+		}else{
+			$sql.="where `A`.`acc`='".$acc."'";
 			$ok=1;
 		}
 		$sql.=" group by `A`.`id` ";
@@ -173,7 +179,7 @@
 		$sql.=" order by `ordine` ASC, `tag` ASC";
 		return mysqli_query($conn,$sql);
 	}
-	function getIntrebari($id = -1, $id_user=-1, $id_cat = -1, $id_tag=-1, $rezolvata=-1, $search='', $de_la='', $pana_la='', $limit=array(), $order=array('data','DESC')){
+	function getIntrebari($id = -1, $id_user=-1, $id_cat = -1, $id_tag=-1, $rezolvata=-1, $search='', $de_la='', $pana_la='', $limit=array(), $order=array('data','DESC'), $acc=1){
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -262,6 +268,12 @@
 			$sql.=" and `A`.`del`='0'";
 		}else{
 			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
+		if($ok==1){
+			$sql.=" and `A`.`acc`='".$acc."'";
+		}else{
+			$sql.="where `A`.`acc`='".$acc."'";
 			$ok=1;
 		}
 		$sql.=" group by `A`.`id` ";

@@ -31,14 +31,14 @@
 			$raspuns = mysqli_fetch_assoc($rasp);
 		}
 		require('./pages/editraspuns.php');
-	}elseif($urlSeg[2]=='winraspuns' && $urlSeg[3]!=''){
+	}elseif($urlSeg[2]=='winRaspuns' && $urlSeg[3]!=''){
 		$sql="UPDATE `raspunsuri` set `acceptat` = '1' WHERE `id` = '".$urlSeg[3]."'";
 		$sql1="UPDATE `intrebari` as `A` ";
 		$sql1.="left join `raspunsuri` as `B` on `A`.`id`=`B`.`id_intrebare` ";
 		$sql1.="set `A`.`rezolvata`='1' where `B`.`id` = '".$urlSeg[3]."'";
 		$result = mysqli_query($conn, $sql);
 		$result1 = mysqli_query($conn, $sql1);
-		goBack($base_url,'');
+		goBack($base_url,'Raspunsul a fost declarat castigator');
 	}elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
 	}elseif($urlSeg[2]=='intrebariacc'){
