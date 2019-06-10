@@ -254,8 +254,12 @@ footer{
     top: 10px;
     display: flex;
 }
+.likeDislike a{
+    text-decoration: none;
+    color: #0c120c;
+}
 .like{
-	    margin-right: 10px;
+	margin-right: 10px;
 }
 .blackC{
 	color: #0c120c;
@@ -789,6 +793,21 @@ footer{
     margin-left: 40px;
     margin-right: 40px;
     padding-top: 30px;
+}
+.textSus span{
+    font-size: 18px;
+    display: block;
+    line-height: 1.5;
+}
+.textSus a{
+    text-decoration: none;
+    color: #0c120c;
+}
+.textSus a:hover{
+    color: #19647e;
+}
+b{
+    font-weight: 600;
 }
 .pl40{
     padding-left: 40px !important;
