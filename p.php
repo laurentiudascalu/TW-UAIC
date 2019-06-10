@@ -380,21 +380,15 @@
 		}
 		if($corect){
 			$sql="INSERT INTO `raspunsuri`(`id_user`, `id_intrebare`, `mail`, `data`, `acceptat`, `text` ,`acc`) 
-				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".$_POST['mail']."', '".date('Y-m-d H:i:s')."', '1', '".$_POST['raspuns']."','".$acc."')";
+				VALUES ('".$user['id']."','".$_POST['id_intrebare']."', '".$_POST['mail']."', '".date('Y-m-d H:i:s')."', '0', '".$_POST['raspuns']."','".$acc."')";
 			$result = mysqli_query($conn, $sql);
 		}
 		if($gresit==0){
-			$_SESSION["mesaj"]='Raspuns adaugat cu succes';
-			header('Location: '.$base_url); //redirect in intrebare
-			exit;			
-		}elseif($gresit==1){
-			$_SESSION["mesaj"]='Raspunsul introdus nu este valid';
-			header('Location: '.$base_url.'intrebare');
-			exit;				
+			goBack($base_url,'Raspuns adaugat cu succes');			
+		}elseif($gresit==1){	
+			goBack($base_url,'Raspunsul introdus nu este valid');			
 		}elseif($gresit==2){
-			$_SESSION["mesaj"]='Mailul introdus nu este valid';
-			header('Location: '.$base_url.'intrebare');
-			exit;				
+			goBack($base_url,'Mailul introdus nu este valid');				
 		}
 	}
 	

@@ -25,18 +25,28 @@
 		$activCont = 'contultau';
 		require('./pages/contultau.php');
 	}elseif($urlSeg[2]=='editraspuns' && $urlSeg[3]!=''){
+		$activ='editraspuns';
 		$rasp=getRaspunsuri($urlSeg[3]);
 		if(mysqli_num_rows($rasp) > 0){
 			$raspuns = mysqli_fetch_assoc($rasp);
 		}
 		require('./pages/editraspuns.php');
+	}elseif($urlSeg[2]=='winraspuns' && $urlSeg[3]!=''){
+		$sql="UPDATE `raspunsuri` set `acceptat` = '1' WHERE `id` = '".$urlSeg[3]."'";
+		$sql1="UPDATE `intrebari` as `A` ";
+		$sql1.="left join `raspunsuri` as `B` on `A`.`id`=`B`.`id_intrebare` ";
+		$sql1.="set `A`.`rezolvata`='1' where `B`.`id` = '".$urlSeg[3]."'";
+		$result = mysqli_query($conn, $sql);
+		$result1 = mysqli_query($conn, $sql1);
+		goBack($base_url,'');
 	}elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
 	}elseif($urlSeg[2]=='intrebariacc'){
 		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/intrebariacc.php');
 	}elseif($urlSeg[2]=='raspunsuriacc'){
-		$intrebari=getRaspunsuri(-1, '', -1, -1,  0);
+		$raspunsuri=getRaspunsuri(-1, '', -1, -1,  0);
+		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/raspunsuriacc.php');
 	}elseif($urlSeg[2]=='inceputuri'){
 		require('./pages/inceputuri.php');
@@ -44,6 +54,7 @@
 		$activCont = 'insigneletale';
 		require('./pages/insigneletale.php');
 	}elseif($urlSeg[2]=='editintrebare' && $urlSeg[3]!=''){
+		$activ='editintrebare';
 		$categorii=getCategorii();
 		$taguriIntrebare=getTaguri(-1,'',$urlSeg[3]);
 		$taguri=getTaguri();
@@ -81,7 +92,7 @@
 		}else{
 			goHome($base_url);
 		}				
-	}elseif($urlSeg[2]=='like'){
+	}elseif($urlSeg[2]=='like' && $urlSeg[3]!='' && $urlSeg[4]!=''){
 		$intrebare=0;
 		$raspuns=0;
 		$dislike=0;
@@ -105,16 +116,22 @@
 		$intrebari=getIntrebari(-1,$user['id']);
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
-	}elseif($urlSeg[2]=='stergeintrebare'){
-		$sql="UPDATE `intrebari` set `del` = `1` where `id` = '".$urlSeg[3]."'";
-		$sql1="UPDATE `raspunsuri` set `del` = `1` where `id_intrebare` = '".$urlSeg[3]."'";
-		$sql2="UPDATE `likeuri` set `del` = `1` where `id_intrebare` ='".$urlSeg[3]."'";
-		$sql2="UPDATE `tag_leg` set `del` = `1` where `id_intrebare` ='".$urlSeg[3]."'";
-		print_r($sql);print_r($sql1);print_r($sql2);exit;
-	}elseif($urlSeg[2]=='stergeraspuns'){
-		$sql="UPDATE `raspunsuri` set `del` = `1` where `id` = '".$urlSeg[3]."'";
-		$sql1="UPDATE `likeuri` set `del` = `1` where `id_raspuns` ='".$urlSeg[3]."'";
-		print_r($sql);print_r($sql1);exit;
+	}elseif($urlSeg[2]=='stergeintrebare' && $urlSeg[3]!=''){
+		$sql="UPDATE `intrebari` set `del` = '1' where `id` = '".$urlSeg[3]."'";
+		$sql1="UPDATE `raspunsuri` set `del` = '1' where `id_intrebare` = '".$urlSeg[3]."'";
+		$sql2="UPDATE `likeuri` set `del` = '1' where `id_intrebare` ='".$urlSeg[3]."'";
+		$sql3="UPDATE `tag_leg` set `del` = '1' where `id_intrebare` ='".$urlSeg[3]."'";
+		$result = mysqli_query($conn, $sql);
+		$result1 = mysqli_query($conn, $sql1);
+		$result2 = mysqli_query($conn, $sql2);
+		$result3 = mysqli_query($conn, $sql3);
+		goBack($base_url,'Intrebare stearsa cu succes');
+	}elseif($urlSeg[2]=='stergeraspuns' && $urlSeg[3]!=''){
+		$sql="UPDATE `raspunsuri` set `del` = 1 where `id` = '".$urlSeg[3]."'";
+		$sql1="UPDATE `likeuri` set `del` = 1 where `id_raspuns` ='".$urlSeg[3]."'";
+		$result = mysqli_query($conn, $sql);
+		$result1 = mysqli_query($conn, $sql1);
+		goBack($base_url,'Raspuns sters cu succes');		
 	}elseif($urlSeg[2]=='intrebari'){
 		$categorii=getCategorii();
 		$taguri=getTaguri();
