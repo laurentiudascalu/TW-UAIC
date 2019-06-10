@@ -8,7 +8,7 @@
 			<?php if($intrebari!=FALSE && mysqli_num_rows($intrebari) > 0){
 		     while($row = mysqli_fetch_assoc($intrebari)) {
 		     	$taguri = getTaguri(-1,'',$row['id']); ?>
-				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
+				<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare <?php echo (($user['admin']>0)?'pb50':''); ?>">
 					<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
 					<div class="intrebareContent">
 						<?php echo $row['text']; ?>
@@ -19,10 +19,21 @@
 		     				<div class="hashtag">#<?php echo $row2['tag']; ?></div>
 		     			<?php } } ?>
 					</div>
-					<div class="likeDislike">
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></div>
-						<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></div>
-					</div>
+					<?php if($user['id'] > 0){ ?>
+						<div class="likeDislike">
+							<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>'); return false;" class="like"><i class="fas fa-thumbs-up"></i> <?php echo $row['nrLike']; ?></div>
+							<div onclick="window.location.replace('<?php echo $base_url; ?>like/intrebare/<?php echo $row['id']; ?>/1'); return false;" class="dislike"><i class="fas fa-thumbs-down"></i> <?php echo $row['nrDisLike']; ?></div>
+						</div>
+					<?php } ?>
+					<?php if($user['admin'] > 0){ ?>
+						<div class="intrebareAdmin">
+							<?php if($row['acc'] == 0){ ?>
+								<div onclick="if(confirm('Esti sigur ca vrei sa accepti intrebarea?')){ window.location.replace('<?php echo $base_url."accIntrebare/".$row['id']; ?>'); } return false;" class="accepta"><i class="fas fa-check"></i> Accepta</div>
+							<?php } ?>
+							<div onclick="if(confirm('Esti sigur ca vrei sa stergi intrebarea?')){ window.location.replace('<?php echo $base_url."stergeintrebare/".$row['id']; ?>'); } return false;" class="refuza"><i class="fas fa-times"></i> Sterge</div>
+							<div onclick="window.location.replace('<?php echo $base_url.'editintrebare/'.$row['id']; ?>'); return false;" class="veziInfo"><i class="far fa-eye"></i> Edit</div>
+						</div>
+					<?php } ?>
 				</a>
 		<?php } ?>
 			<div class="butoanePaginare">
@@ -38,7 +49,7 @@
 			</div>
 		<?php }else{ ?>
 			<span class="intrebare">
-				<div class="intrebareContent">Nu s-au gasit rezultate pentru filtrarea aplicata.</div>
+				<div class="intrebareContent">Nu sunt intrebari neacceptate.</div>
 			</span>
 		<?php } ?>
 		</div>

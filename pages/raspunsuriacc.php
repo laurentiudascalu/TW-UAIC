@@ -43,7 +43,7 @@
 			</div>
 		<?php }else{ ?>
 			<span class="intrebare">
-				<div class="intrebareContent">Nu s-au gasit rezultate pentru filtrarea aplicata.</div>
+				<div class="intrebareContent">Nu sunt raspunsuri neacceptate.</div>
 			</span>
 		<?php } ?>
 		</div>
