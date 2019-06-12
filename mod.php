@@ -28,7 +28,7 @@
 		return mysqli_query($conn,$sql);
 	}
 
-	function getRaspunsuri($id = -1, $mail_user='', $id_intrebare=-1, $acceptat=-1, $acc=1){
+	function getRaspunsuri($id = -1, $mail_user='', $id_intrebare=-1, $acceptat=-1, $acc=1, $id_user= -1){
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -56,6 +56,14 @@
 				$sql.=" and `A`.`mail`='".$mail_user."'";
 			}else{
 				$sql.="where `A`.`mail`='".$mail_user."'";
+				$ok=1;
+			}
+		}
+		if ($id_user!=-1){
+			if($ok==1){
+				$sql.=" and `A`.`id_user`='".$id_user."'";
+			}else{
+				$sql.="where `A`.`id_user`='".$id_user."'";
 				$ok=1;
 			}
 		}
@@ -179,6 +187,71 @@
 		$sql.=" order by `ordine` ASC, `tag` ASC";
 		return mysqli_query($conn,$sql);
 	}
+	function getIntrebariStatistici($id_user=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		$res=array();
+		for ($i=6; $i>=0; $i--) {
+		    $res[date('Y-m-d',strtotime ( '-'.$i.' day' , strtotime (date('Y-m-d'))))]=0;
+		}
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql="select COUNT(`A`.`id`) as `nr`,DATE_FORMAT(`A`.`data`, '%Y-%m-%d') as `data` from `intrebari` as `A` where `A`.`data` >= '".date('Y-m-d',strtotime ( '-6 day' , strtotime (date('Y-m-d'))))."' and `A`.`acc` = '1' and `A`.`del` = '0'";
+		if($id_user!=-1){
+			$sql.=" and `A`.`id_user`='".$id_user."'";
+		}
+		$sql.=" group by DATE_FORMAT(`A`.`data`, '%Y-%m-%d') ";
+		$ret = mysqli_query($conn,$sql);
+		if(mysqli_num_rows($ret) > 0){
+		    while($row = mysqli_fetch_assoc($ret)) {
+		    	$res[$row['data']]=$row['nr'];
+		    }
+		}
+		return $res;
+	}
+	function getRaspunsuriStatistici($id_user=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		$res=array();
+		for ($i=6; $i>=0; $i--) {
+		    $res[date('Y-m-d',strtotime ( '-'.$i.' day' , strtotime (date('Y-m-d'))))]=0;
+		}
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql="select COUNT(`A`.`id`) as `nr`,DATE_FORMAT(`A`.`data`, '%Y-%m-%d') as `data` from `raspunsuri` as `A` where `A`.`data` >= '".date('Y-m-d',strtotime ( '-6 day' , strtotime (date('Y-m-d'))))."' and `A`.`acc` = '1' and `A`.`del` = '0'";
+		if($id_user!=-1){
+			$sql.=" and `A`.`id_user`='".$id_user."'";
+		}
+		$sql.=" group by DATE_FORMAT(`A`.`data`, '%Y-%m-%d') ";
+		$ret = mysqli_query($conn,$sql);
+
+		if(mysqli_num_rows($ret) > 0){
+		    while($row = mysqli_fetch_assoc($ret)) {
+		    	$res[$row['data']]=$row['nr'];
+		    }
+		}
+		return $res;
+	}
 	function getIntrebari($id = -1, $id_user=-1, $id_cat = -1, $id_tag=-1, $rezolvata=-1, $search='', $de_la='', $pana_la='', $limit=array(), $order=array('data','DESC'), $acc=1){
 		$servername = "localhost";
 		$username = "root";
@@ -288,6 +361,129 @@
 		$sqlBig.=" order by `".$order[0]."` ".$order[1];
 		//echo $sqlBig; exit;
 		return mysqli_query($conn,$sqlBig);
+	}
+	function getUseri($id = -1, $mail = '', $admin=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql='select `A`.* from `useri` as `A` ';
+		$ok=0;
+		if($id!=-1){
+			$sql.="where `A`.`id`='".$id."'";
+			$ok=1;
+		}
+		if ($mail!=''){
+			if($ok==1){
+				$sql.=" and `A`.`mail`='".$mail."'";
+			}else{
+				$sql.="where `A`.`mail`='".$mail."'";
+				$ok=1;
+			}
+		}
+		if ($admin!=-1){
+			if($ok==1){
+				$sql.=" and `A`.`admin`='".$admin."'";
+			}else{
+				$sql.="where `A`.`admin`='".$admin."'";
+				$ok=1;
+			}
+		}
+
+		if($ok==1){
+			$sql.=" and `A`.`del`='0'";
+		}else{
+			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
+		$sql.=" group by `A`.`id` ";
+		return mysqli_query($conn,$sql);
+	}
+	function getInsigne($id = -1, $titlu = '', $id_user=-1){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$sql='select `A`.* from `insigne` as `A` ';
+		$sql.="left join `insigne_leg` as `B` on `A`.`id` = `B`.`id_insigna` AND `B`.`del` = '0' ";
+		$ok=0;
+		if($id!=-1){
+			$sql.="where `A`.`id`='".$id."'";
+			$ok=1;
+		}
+		if ($titlu!=''){
+			if($ok==1){
+				$sql.=" and `A`.`titlu`='".$titlu."'";
+			}else{
+				$sql.="where `A`.`titlu`='".$titlu."'";
+				$ok=1;
+			}
+		}
+		if ($id_user!=-1){
+			if($ok==1){
+				$sql.=" and `B`.`id_user`='".$id_user."'";
+			}else{
+				$sql.="where `B`.`id_user`='".$id_user."'";
+				$ok=1;
+			}
+		}
+
+		if($ok==1){
+			$sql.=" and `A`.`del`='0'";
+		}else{
+			$sql.="where `A`.`del`='0'";
+			$ok=1;
+		}
+		$sql.=" group by `A`.`id` ";
+		return mysqli_query($conn,$sql);
+	}
+
+	function cmpTop($a, $b){
+	    if ($a['puncte'] == $b['puncte']) {
+	        return 0;
+	    }
+	    return ($a['puncte'] > $b['puncte']) ? -1 : 1;
+	}
+
+	function getPuncte($id_user=-1){
+		$puncte = 0;
+
+		$intrebari  = getIntrebari(-1, $id_user);
+		$intrebari  = mysqli_num_rows($intrebari);
+
+		$raspunsuri = getRaspunsuri(-1, '', -1, -1, 1, $id_user);
+		$raspunsuri = mysqli_num_rows($raspunsuri);
+
+		$raspC  	= getRaspunsuri(-1, '', -1, 1, 1, $id_user);
+		$raspC		= mysqli_num_rows($raspC);
+
+		$puncte = $intrebari*100 + $raspunsuri*10 + $raspC*50;
+
+		$insigne = getInsigne(-1,'',$id_user);
+		if(mysqli_num_rows($insigne) >0){
+		    while($row = mysqli_fetch_assoc($insigne)) { 
+				$puncte += $row['puncte'];
+			}
+		}
+		return $puncte;
 	}
 	function validMail($mail = ''){
 		if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
