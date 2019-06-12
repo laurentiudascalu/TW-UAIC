@@ -14,177 +14,51 @@
 						</tr>
 						</thead>
 						<tbody>
+							<?php if(!empty($top)){ $i=0;
+		     			foreach ($top as $row) { $i++; 
+		     			if($i<6){ ?>
 							<tr>
-								<td class="tc">1</td>
-								<td><i class="fas fa-user-circle"></i> Dulceanu Maria</td>
-								<td class="tc">99.999</td>
+								<td class="tc"><?php echo $i; ?></td>
+								<td><i class="fas fa-user-circle"></i> <?php echo $row['nume_complet']; ?></td>
+								<td class="tc"><?php echo $row['puncte']; ?></td>
 							</tr>
-							<tr>
-								<td class="tc">2</td>
-								<td><i class="fas fa-user-circle"></i> Dascalu Laurentiu</td>
-								<td class="tc">78.991</td>
-							</tr>
-							<tr>
-								<td class="tc">3</td>
-								<td><i class="fas fa-user-circle"></i> Constantin Razvan Ionut</td>
-								<td class="tc">45.222</td>
-							</tr>
-							<tr>
-								<td class="tc">4</td>
-								<td><i class="fas fa-user-circle"></i> Atanasiu Sabin Marius</td>
-								<td class="tc">22.889</td>
-							</tr>
-							<tr>
-								<td class="tc">5</td>
-								<td><i class="fas fa-user-circle"></i> Vasile Eugen</td>
-								<td class="tc">10.002</td>
-							</tr>
+						<?php } } } ?>
 						</tbody>
 					</table>
 				</div>
 				<div class="titluPrimaPagina">Cele mai recente intrebari</div>
 				<div class="contentPrimaPagina">
-					<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-						<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-						<div class="intrebareContent">
-							Buna ziua!<br/>
-							Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-							Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-						</div>
-						<div class="intrebareHashtaguri">
-							<div class="hashtag">#test</div>
-							<div class="hashtag">#deTest</div>
-							<div class="hashtag">#PHP</div>
-							<div class="hashtag">#HTML</div>
-							<div class="hashtag">#CSS</div>
-							<div class="hashtag">#JS</div>
-							<div class="hashtag">#MySQL</div>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-						</div>
-					</a>
-					<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-						<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-						<div class="intrebareContent">
-							Buna ziua!<br/>
-							Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-							Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-						</div>
-						<div class="intrebareHashtaguri">
-							<div class="hashtag">#test</div>
-							<div class="hashtag">#deTest</div>
-							<div class="hashtag">#PHP</div>
-							<div class="hashtag">#HTML</div>
-							<div class="hashtag">#CSS</div>
-							<div class="hashtag">#JS</div>
-							<div class="hashtag">#MySQL</div>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-						</div>
-					</a>
-					<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-						<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-						<div class="intrebareContent">
-							Buna ziua!<br/>
-							Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-							Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-						</div>
-						<div class="intrebareHashtaguri">
-							<div class="hashtag">#test</div>
-							<div class="hashtag">#deTest</div>
-							<div class="hashtag">#PHP</div>
-							<div class="hashtag">#HTML</div>
-							<div class="hashtag">#CSS</div>
-							<div class="hashtag">#JS</div>
-							<div class="hashtag">#MySQL</div>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-						</div>
-					</a>
-					<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-						<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-						<div class="intrebareContent">
-							Buna ziua!<br/>
-							Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-							Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-						</div>
-						<div class="intrebareHashtaguri">
-							<div class="hashtag">#test</div>
-							<div class="hashtag">#deTest</div>
-							<div class="hashtag">#PHP</div>
-							<div class="hashtag">#HTML</div>
-							<div class="hashtag">#CSS</div>
-							<div class="hashtag">#JS</div>
-							<div class="hashtag">#MySQL</div>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-						</div>
-					</a>
-					<a href="<?php echo $base_url; ?>intrebare" class="intrebare">
-						<div class="intrebareTitlu">Un site pentru paleta de culori?<span class="blackC"> - postata de: </span> Dascalu Lauentiu</div>
-						<div class="intrebareContent">
-							Buna ziua!<br/>
-							Sunt nou in ceea ce priveste web design-ul si web in general.<br/>
-							Stie cineva un site interesant pentru a iti alege cateva culori pentru tema unui nou site?
-						</div>
-						<div class="intrebareHashtaguri">
-							<div class="hashtag">#test</div>
-							<div class="hashtag">#deTest</div>
-							<div class="hashtag">#PHP</div>
-							<div class="hashtag">#HTML</div>
-							<div class="hashtag">#CSS</div>
-							<div class="hashtag">#JS</div>
-							<div class="hashtag">#MySQL</div>
-						</div>
-						<div class="likeDislike">
-							<div class="like"><i class="fas fa-thumbs-up"></i> 590</div>
-							<div class="dislike"><i class="fas fa-thumbs-down"></i> 30</div>
-						</div>
-					</a>
+					<?php $i=0; ?>
+					<?php if($intrebari!=FALSE && mysqli_num_rows($intrebari) > 0){
+		     			while($row = mysqli_fetch_assoc($intrebari)) {
+			     			$i++;
+			     			if ($i<=5){ 
+				     			$taguri = getTaguri(-1,'',$row['id']); ?>
+								<a href="<?php echo $base_url; ?>intrebare/<?php echo $row['id']; ?>" class="intrebare">
+								<div class="intrebareTitlu"><?php echo $row['titlu']; ?><span class="blackC"> - postata de: </span> <?php echo $row['nume_complet']; ?></div>
+								<div class="intrebareContent">
+									<?php echo $row['text']; ?>
+								</div>
+								<div class="intrebareHashtaguri">
+									<?php if(mysqli_num_rows($taguri) > 0){
+				     					while($row2 = mysqli_fetch_assoc($taguri)) { ?>
+				     						<div class="hashtag">#<?php echo $row2['tag']; ?></div>
+				     				<?php } } ?>
+								</div>
+								</a>
+							<?php }else { break; } ?>
+					<?php } } ?>
 				</div>
 				<div class="titluPrimaPagina">Obtine Insigne</div>
 				<div class="contentPrimaPagina">
 					<div class="insigne">
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-question-circle"></i></div>
-							<div class="textInsigna">Utilizator curios</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-balance-scale"></i></div>
-							<div class="textInsigna">Utilizator altruist</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-book"></i></div>
-							<div class="textInsigna">Utilizator informat</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-microscope"></i></div>
-							<div class="textInsigna">Utilizator atent</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-calendar-check"></i></div>
-							<div class="textInsigna">Utilizator activ</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fab fa-expeditedssl"></i></div>
-							<div class="textInsigna">Utilizator moderator</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-user-graduate"></i></div>
-							<div class="textInsigna">Utilizator cu experienta</div>
-						</div>
-						<div class="insigna">
-							<div class="imagineInsigna"><i class="fas fa-certificate"></i></div>
-							<div class="textInsigna">#1 Utilizator</div>
-						</div>
+						<?php if($insigne!=FALSE && mysqli_num_rows($insigne) > 0){
+						     while($row = mysqli_fetch_assoc($insigne)) { ?>
+								<div class="insigna">
+									<div class="imagineInsigna"><i class="fas <?php echo $row['icon']?>"></i></div>
+									<div class="textInsigna"><?php echo $row['titlu']?></div>
+								</div>
+						<?php } } ?>
 					</div>
 				</div>
 			</div>
