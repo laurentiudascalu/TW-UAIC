@@ -2,6 +2,10 @@
 <?php include('./pages/sus.php'); ?>
 	<div class="content">
 		<div class="container">
+			<div class="meniuCont">
+				<a href="<?php echo $base_url; ?>intrebariacc" class="activ" >Intrebari neacceptate</a>
+				<a href="<?php echo $base_url; ?>raspunsuriacc">Raspunsuri neacceptate</a>
+			</div>
 			<div class="titluPrimaPagina">
 				<span>Intrebari neacceptate</span>
 			</div>
