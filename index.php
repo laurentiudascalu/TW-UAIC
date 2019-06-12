@@ -42,9 +42,11 @@
 	}elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
 	}elseif($urlSeg[2]=='intrebariacc'){
+		$activ='intrebariacc';
 		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/intrebariacc.php');
 	}elseif($urlSeg[2]=='raspunsuriacc'){
+		$activ='raspunsuriacc';
 		$raspunsuri=getRaspunsuri(-1, '', -1, -1,  0);
 		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/raspunsuriacc.php');
