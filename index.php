@@ -54,6 +54,13 @@
 		require('./pages/inceputuri.php');
 	}elseif($urlSeg[2]=='insigneletale'){
 		$activCont = 'insigneletale';
+		$insigne=getInsigne();
+		$insObt=getInsigne(-1,'', $user['id']);
+		if(mysqli_num_rows($insObt) > 0){
+		    while($row = mysqli_fetch_assoc($insObt)) {
+		    	$insigneObt[]=$row['id'];
+		    }
+		}
 		require('./pages/insigneletale.php');
 	}elseif($urlSeg[2]=='editintrebare' && $urlSeg[3]!=''){
 		$activ='editintrebare';
@@ -72,6 +79,7 @@
 		require('./pages/editintrebare.php');
 	}elseif($urlSeg[2]=='insigne'){
 		$activ='insigne';
+		$insigne=getInsigne();
 		require('./pages/insigne.php');
 	}elseif($urlSeg[2]=='intrebareAdmin'){
 		$activ='intrebareAdmin';
@@ -168,9 +176,27 @@
 	}elseif($urlSeg[2]=='reparola'){
 		require('./pages/reparola.php');
 	}elseif($urlSeg[2]=='statisticiletale'){
+		$intrebari=getIntrebari(-1,$user['id']);
+		$intrebari=mysqli_num_rows($intrebari);
+		$raspunsuri=getRaspunsuri(-1,'',-1,-1,1,$user['id']);
+		$raspunsuri=mysqli_num_rows($raspunsuri);
+		$raspunsuriC=getRaspunsuri(-1,'',-1,1,1,$user['id']);
+		$raspunsuriC=mysqli_num_rows($raspunsuriC);
+
+		$intr=getIntrebariStatistici($user['id']);
+		$rasp=getRaspunsuriStatistici($user['id']);
 		$activCont = 'statisticiletale';
 		require('./pages/statisticiletale.php');
 	}elseif($urlSeg[2]=='statistici'){
+		$useri=getUseri();
+		$useri=mysqli_num_rows($useri);
+		$intrebari=getIntrebari();
+		$intrebari=mysqli_num_rows($intrebari);
+		$raspunsuri=getRaspunsuri();
+		$raspunsuri=mysqli_num_rows($raspunsuri);
+
+		$intr=getIntrebariStatistici();
+		$rasp=getRaspunsuriStatistici();
 		$activ='statistici';
 		require('./pages/statistici.php');
 	}elseif($urlSeg[2]=='stergecont'){
@@ -179,11 +205,31 @@
 	}elseif($urlSeg[2]=='taskindeplinite'){
 		require('./pages/taskindeplinite.php');
 	}elseif($urlSeg[2]=='top'){
+		$useri=getUseri();
+		$top=array();
+		if(mysqli_num_rows($useri) > 0){	$i = 0;
+		    while($row = mysqli_fetch_assoc($useri)) { 
+		    	$top[$i]['nume_complet']  = $row['nume_complet'];
+		    	$top[$i++]['puncte']		= getPuncte($row['id']); 
+		    }
+		}
+		usort($top, "cmpTop"); 
 		$activ='top';
 		require('./pages/top.php');
 	}elseif($urlSeg[2]=='p'){
 		require('./p.php');
 	}elseif($urlSeg[2]==''){
+		$useri=getUseri();
+		$top=array();
+		if(mysqli_num_rows($useri) > 0){	$i = 0;
+		    while($row = mysqli_fetch_assoc($useri)) { 
+		    	$top[$i]['nume_complet']  = $row['nume_complet'];
+		    	$top[$i++]['puncte']		= getPuncte($row['id']); 
+		    }
+		}
+		usort($top, "cmpTop");
+		$intrebari=getIntrebari();
+		$insigne=getInsigne();
 		require('./pages/home.php');
 		exit;
 	}else{
