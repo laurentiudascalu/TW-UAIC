@@ -323,7 +323,7 @@
 				$ok=1;
 			}
 		}
-		if ($id_tag!=-1){
+		/*if ($id_tag!=-1){
 			$id_tag=(array)$id_tag;
 			$textTag='('.$id_tag[0];
 			for($i=1; $i<count($id_tag); $i++){
@@ -334,6 +334,14 @@
 				$sql.=" and `B`.`id_tag` in '".$textTag."'";
 			}else{
 				$sql.="where `B`.`id_tag` in '".$textTag."'";
+				$ok=1;
+			}
+		}*/
+		if ($id_tag!=-1){
+			if($ok==1){
+				$sql.=" and `B`.`id_tag`='".$id_tag."'";
+			}else{
+				$sql.="where `B`.`id_tag`='".$id_tag."'";
 				$ok=1;
 			}
 		}
