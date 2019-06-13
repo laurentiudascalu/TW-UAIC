@@ -6,7 +6,12 @@
 				</div>
 				<div class="cauta">
 					<form action="<?php echo $base_url; ?>intrebari" class="cautareSus" method="post">
-						<input type="hidden" name="submitFiltrare" value="Cauta intrebare">
+						<input type="hidden" name="ordonare" value="0">
+						<input type="hidden" name="categorie" value="-1">
+						<input type="hidden" name="tag" value="-1">
+						<input type="hidden" name="status" value="-1">
+						<input type="hidden" name="dela" value="">
+						<input type="hidden" name="la" value="">
 						<input type="text" placeholder="Search.." name="cuvant">
 						<button><i class="fas fa-search"></i></button>
 					</form>

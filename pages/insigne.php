@@ -2,7 +2,6 @@
 <?php include('./pages/sus.php'); ?>
 	<div class="content">
 		<div class="container">
-			
 			<?php if($insigne!=FALSE && mysqli_num_rows($insigne) > 0){
 		     while($row = mysqli_fetch_assoc($insigne)) { ?>
 				<div class="insignaExplicit">
@@ -22,8 +21,7 @@
 						<div class="textInsigna"><?php echo $row['titlu']?></div>
 					</div>
 				</div>
-		<?php } } ?>
-			</div>
+			<?php } } ?>
 		</div>
  	</div>
 <?php include('./pages/jos.php'); ?>
