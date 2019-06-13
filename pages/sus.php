@@ -5,8 +5,9 @@
 					<a href="<?php echo $base_url; ?>"><img src="<?php echo $base_url; ?>public/pics/logo4.png" alt="logo"></a>
 				</div>
 				<div class="cauta">
-					<form action="<?php echo $base_url; ?>p" class="cautareSus">
-						<input type="text" placeholder="Search.." name="search">
+					<form action="<?php echo $base_url; ?>intrebari" class="cautareSus" method="post">
+						<input type="hidden" name="submitFiltrare" value="Cauta intrebare">
+						<input type="text" placeholder="Search.." name="cuvant">
 						<button><i class="fas fa-search"></i></button>
 					</form>
 				</div>
