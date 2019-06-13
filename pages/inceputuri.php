@@ -5,9 +5,6 @@
 			<div class="boxPrimaPagina">
 				<div class="titluPaginiS">
 					<span>Inceputuri</span>
-					<div class="buton">
-						<a href="<?php echo $base_url; ?>edit"><i class="fas fa-pencil-alt"></i>Edit</a>
-					</div>
 				</div>
 				<div class="continutPaginaStatica">
 					Platforma de întrebări şi răspunsuri "adwise.ro" a devenit, la 15 luni de la lansare, cea mai vizitată reţea socială românească şi proiectul online cu cea mai rapidă creştere din domeniul .ro, de la zero la peste un milion de clienţi unici.<br/><br/>

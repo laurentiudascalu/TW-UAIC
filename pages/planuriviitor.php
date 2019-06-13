@@ -5,9 +5,6 @@
 			<div class="boxPrimaPagina">
 				<div class="titluPaginiS">
 					<span>Planuri de viitor</span>
-					<div class="buton">
-						<a href="<?php echo $base_url; ?>edit"><i class="fas fa-pencil-alt"></i>Edit</a>
-					</div>
 				</div>
 				<div class="continutPaginaStatica">
 					Conectarea cat mai multor utilizatori.<br/><br/>

@@ -5,9 +5,6 @@
 			<div class="boxPrimaPagina">
 				<div class="titluPaginiS">
 					<span>Despre noi</span>
-					<div class="buton">
-						<a href="<?php echo $base_url; ?>edit"><i class="fas fa-pencil-alt"></i>Edit</a>
-					</div>
 				</div>
 				<div class="continutPaginaStatica">
 					Întrebi un prieten chiar dacă nu-l cunoşti.<br/><br/>

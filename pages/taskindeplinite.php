@@ -5,9 +5,6 @@
 			<div class="boxPrimaPagina">
 				<div class="titluPaginiS">
 					<span>Task-uri indeplinite</span>
-					<div class="buton">
-						<a href="<?php echo $base_url; ?>edit"><i class="fas fa-pencil-alt"></i>Edit</a>
-					</div>
 				</div>
 				<div class="continutPaginaStatica">
 					Peste 10.000 de persoane unite prin intermediul platformei adwise.ro.<br/><br/>
