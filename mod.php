@@ -521,6 +521,10 @@
 		    	if($intrebari >= $row['nr_intrebari'] && $raspunsuri >= $row['nr_raspunsuri'] && $raspC >= $row['nr_rasp_corecte'] && $puncte >= $row['nr_puncte']){
 		    		$sql = "INSERT INTO insigne_leg (`id_insigna`, `id_user`) VALUES ('".$row['id']."', '".$id_user."')";
 					mysqli_query($conn,$sql);
+					if($row['titlu']=='Admin'){
+						$sql = "UPDATE useri SET `admin` = '1' WHERE `id` = '".$id_user."'";
+						mysqli_query($conn,$sql);
+					}
 		    	}
 		    }
 		}
