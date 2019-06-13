@@ -296,6 +296,7 @@
 			}
 		}
 		if($gresit==0){
+			verificaInsigne($user['id']);
 			$_SESSION["mesaj"]='Intrebare introdusa cu succes';
 			header('Location: '.$base_url); //redirect in intrebare
 			exit;			
@@ -324,7 +325,7 @@
 			$sql1 ="UPDATE `tag_leg` set `del`=1 where `id_intrebare`= '".$_POST['id_intrebare']."'";
 			$result1 = mysqli_query($conn, $sql1);
 			foreach ($_POST['taguri'] as $row) {
-				$sql2="INSERT INTO `tag_leg`(`id_intrebare`, `id_tag`) VALUES ('".$_POST['id_intrebare']."', '".$row."')";
+				$sql2="INSERT INTO `tag_leg` (`id_intrebare`, `id_tag`) VALUES ('".$_POST['id_intrebare']."', '".$row."')";
 				$result2=mysqli_query($conn,$sql2);
 			}
 		}
@@ -384,6 +385,7 @@
 			$result = mysqli_query($conn, $sql);
 		}
 		if($gresit==0){
+			verificaInsigne($user['id']);
 			goBack($base_url,'Raspuns adaugat cu succes');			
 		}elseif($gresit==1){	
 			goBack($base_url,'Raspunsul introdus nu este valid');			

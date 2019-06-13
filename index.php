@@ -12,47 +12,63 @@
     	setcookie('login', '', time() - 3600);
 		header('Location: '.$base_url);
 		exit;
-	}elseif($urlSeg[2]=='despre'){
+	}
+	elseif($urlSeg[2]=='despre'){
 		require('./pages/despre.php');
-	}elseif($urlSeg[2]=='adaugaintrebare'){
+	}
+	elseif($urlSeg[2]=='adaugaintrebare'){
 		$categorii=getCategorii();
 		$taguri=getTaguri();
 		$activ='adaugaintrebare';
 		require('./pages/adaugaintrebare.php');
-	}elseif($urlSeg[2]=='contnou'){
+	}
+	elseif($urlSeg[2]=='contnou'){
 		require('./pages/contnou.php');
-	}elseif($urlSeg[2]=='contultau'){
+	}
+	elseif($urlSeg[2]=='contultau'){
 		$activCont = 'contultau';
 		require('./pages/contultau.php');
-	}elseif($urlSeg[2]=='editraspuns' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='editraspuns' && $urlSeg[3]!=''){
 		$activ='editraspuns';
 		$rasp=getRaspunsuri($urlSeg[3]);
 		if(mysqli_num_rows($rasp) > 0){
 			$raspuns = mysqli_fetch_assoc($rasp);
 		}
 		require('./pages/editraspuns.php');
-	}elseif($urlSeg[2]=='winRaspuns' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='winRaspuns' && $urlSeg[3]!=''){
 		$sql="UPDATE `raspunsuri` set `acceptat` = '1' WHERE `id` = '".$urlSeg[3]."'";
 		$sql1="UPDATE `intrebari` as `A` ";
 		$sql1.="left join `raspunsuri` as `B` on `A`.`id`=`B`.`id_intrebare` ";
 		$sql1.="set `A`.`rezolvata`='1' where `B`.`id` = '".$urlSeg[3]."'";
 		$result = mysqli_query($conn, $sql);
 		$result1 = mysqli_query($conn, $sql1);
+		$rasp=getRaspunsuri($urlSeg[3]);
+		if(mysqli_num_rows($rasp) > 0){
+			$raspuns = mysqli_fetch_assoc($rasp);
+		}
+		verificaInsigne($raspuns['id_user']);
 		goBack($base_url,'Raspunsul a fost declarat castigator');
-	}elseif($urlSeg[2]=='edit'){
+	}
+	elseif($urlSeg[2]=='edit'){
 		require('./pages/edit.php');
-	}elseif($urlSeg[2]=='intrebariacc'){
+	}
+	elseif($urlSeg[2]=='intrebariacc'){
 		$activ='intrebariacc';
 		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/intrebariacc.php');
-	}elseif($urlSeg[2]=='raspunsuriacc'){
+	}
+	elseif($urlSeg[2]=='raspunsuriacc'){
 		$activ='raspunsuriacc';
 		$raspunsuri=getRaspunsuri(-1, '', -1, -1,  0);
 		$intrebari=getIntrebari(-1, -1, -1, -1, -1, '', '', '', array(), array('data','DESC'), 0);
 		require('./pages/raspunsuriacc.php');
-	}elseif($urlSeg[2]=='inceputuri'){
+	}
+	elseif($urlSeg[2]=='inceputuri'){
 		require('./pages/inceputuri.php');
-	}elseif($urlSeg[2]=='insigneletale'){
+	}
+	elseif($urlSeg[2]=='insigneletale'){
 		$activCont = 'insigneletale';
 		$insigne=getInsigne();
 		$insObt=getInsigne(-1,'', $user['id']);
@@ -62,7 +78,8 @@
 		    }
 		}
 		require('./pages/insigneletale.php');
-	}elseif($urlSeg[2]=='editintrebare' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='editintrebare' && $urlSeg[3]!=''){
 		$activ='editintrebare';
 		$categorii=getCategorii();
 		$taguriIntrebare=getTaguri(-1,'',$urlSeg[3]);
@@ -77,22 +94,33 @@
 			$intrebare = mysqli_fetch_assoc($intr);
 		}
 		require('./pages/editintrebare.php');
-	}elseif($urlSeg[2]=='insigne'){
+	}
+	elseif($urlSeg[2]=='insigne'){
 		$activ='insigne';
 		$insigne=getInsigne();
 		require('./pages/insigne.php');
-	}elseif($urlSeg[2]=='intrebareAdmin'){
-		$activ='intrebareAdmin';
-		require('./pages/intrebareAdmin.php');
-	}elseif($urlSeg[2]=='accIntrebare' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='accIntrebare' && $urlSeg[3]!=''){
 		$sql="UPDATE `intrebari` set `acc`= '1' where `id`='".$urlSeg[3]."'";
 		$result = mysqli_query($conn, $sql);
+		$intr=getIntrebari($urlSeg[3]);
+		if(mysqli_num_rows($intr) > 0){
+			$intrebare = mysqli_fetch_assoc($intr);
+		}
+		verificaInsigne($intrebare['id_user']);
 		goBack($base_url,'Ai acceptat cu succes');
-	}elseif($urlSeg[2]=='accRaspuns' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='accRaspuns' && $urlSeg[3]!=''){
 		$sql="UPDATE `raspunsuri` set `acc`= '1' where `id`='".$urlSeg[3]."'";
 		$result = mysqli_query($conn, $sql);
+		$rasp=getRaspunsuri($urlSeg[3]);
+		if(mysqli_num_rows($rasp) > 0){
+			$raspuns = mysqli_fetch_assoc($rasp);
+		}
+		verificaInsigne($raspuns['id_user']);
 		goBack($base_url,'Ai acceptat cu succes');
-	}elseif($urlSeg[2]=='intrebare' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='intrebare' && $urlSeg[3]!=''){
 		$intr=getIntrebari($urlSeg[3]);
 		if(mysqli_num_rows($intr) > 0){
 			$intrebare = mysqli_fetch_assoc($intr);
@@ -102,7 +130,8 @@
 		}else{
 			goHome($base_url);
 		}				
-	}elseif($urlSeg[2]=='like' && $urlSeg[3]!='' && $urlSeg[4]!=''){
+	}
+	elseif($urlSeg[2]=='like' && $urlSeg[3]!='' && $urlSeg[4]!=''){
 		$intrebare=0;
 		$raspuns=0;
 		$dislike=0;
@@ -122,11 +151,13 @@
 			$result1 = mysqli_query($conn, $sql);}
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 		exit;		
-	}elseif($urlSeg[2]=='intrebariletale'){
+	}
+	elseif($urlSeg[2]=='intrebariletale'){
 		$intrebari=getIntrebari(-1,$user['id']);
 		$activCont = 'intrebariletale';
 		require('./pages/intrebariletale.php');
-	}elseif($urlSeg[2]=='stergeintrebare' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='stergeintrebare' && $urlSeg[3]!=''){
 		$sql="UPDATE `intrebari` set `del` = '1' where `id` = '".$urlSeg[3]."'";
 		$sql1="UPDATE `raspunsuri` set `del` = '1' where `id_intrebare` = '".$urlSeg[3]."'";
 		$sql2="UPDATE `likeuri` set `del` = '1' where `id_intrebare` ='".$urlSeg[3]."'";
@@ -135,14 +166,26 @@
 		$result1 = mysqli_query($conn, $sql1);
 		$result2 = mysqli_query($conn, $sql2);
 		$result3 = mysqli_query($conn, $sql3);
+		$intr=getIntrebari($urlSeg[3]);
+		if(mysqli_num_rows($intr) > 0){
+			$intrebare = mysqli_fetch_assoc($intr);
+		}
+		verificaInsigne($intrebare['id_user']);
 		goBack($base_url,'Intrebare stearsa cu succes');
-	}elseif($urlSeg[2]=='stergeraspuns' && $urlSeg[3]!=''){
+	}
+	elseif($urlSeg[2]=='stergeraspuns' && $urlSeg[3]!=''){
 		$sql="UPDATE `raspunsuri` set `del` = 1 where `id` = '".$urlSeg[3]."'";
 		$sql1="UPDATE `likeuri` set `del` = 1 where `id_raspuns` ='".$urlSeg[3]."'";
 		$result = mysqli_query($conn, $sql);
 		$result1 = mysqli_query($conn, $sql1);
+		$rasp=getRaspunsuri($urlSeg[3]);
+		if(mysqli_num_rows($rasp) > 0){
+			$raspuns = mysqli_fetch_assoc($rasp);
+		}
+		verificaInsigne($raspuns['id_user']);
 		goBack($base_url,'Raspuns sters cu succes');		
-	}elseif($urlSeg[2]=='intrebari'){
+	}
+	elseif($urlSeg[2]=='intrebari'){
 		$categorii=getCategorii();
 		$taguri=getTaguri();
 		$categorii=getCategorii();
@@ -162,20 +205,26 @@
 		}
 		
 		require('./pages/intrebari.php');
-	}elseif($urlSeg[2]=='login'){
+	}
+	elseif($urlSeg[2]=='login'){
 		require('./pages/login.php');
-	}elseif($urlSeg[2]=='planuriviitor'){
+	}
+	elseif($urlSeg[2]=='planuriviitor'){
 		require('./pages/planuriviitor.php');
-	}elseif($urlSeg[2]=='profil'){
+	}
+	elseif($urlSeg[2]=='profil'){
 		$activCont = 'profil';
 		require('./pages/profil.php');
-	}elseif($urlSeg[2]=='raspunsuriletale'){
+	}
+	elseif($urlSeg[2]=='raspunsuriletale'){
 		$raspunsuri = getRaspunsuri(-1,$user['mail']);
 		$activCont = 'raspunsuriletale';
 		require('./pages/raspunsuriletale.php');
-	}elseif($urlSeg[2]=='reparola'){
+	}
+	elseif($urlSeg[2]=='reparola'){
 		require('./pages/reparola.php');
-	}elseif($urlSeg[2]=='statisticiletale'){
+	}
+	elseif($urlSeg[2]=='statisticiletale'){
 		$intrebari=getIntrebari(-1,$user['id']);
 		$intrebari=mysqli_num_rows($intrebari);
 		$raspunsuri=getRaspunsuri(-1,'',-1,-1,1,$user['id']);
@@ -187,7 +236,8 @@
 		$rasp=getRaspunsuriStatistici($user['id']);
 		$activCont = 'statisticiletale';
 		require('./pages/statisticiletale.php');
-	}elseif($urlSeg[2]=='statistici'){
+	}
+	elseif($urlSeg[2]=='statistici'){
 		$useri=getUseri();
 		$useri=mysqli_num_rows($useri);
 		$intrebari=getIntrebari();
@@ -199,12 +249,15 @@
 		$rasp=getRaspunsuriStatistici();
 		$activ='statistici';
 		require('./pages/statistici.php');
-	}elseif($urlSeg[2]=='stergecont'){
+	}
+	elseif($urlSeg[2]=='stergecont'){
 		$activCont = 'stergecont';
 		require('./pages/stergecont.php');
-	}elseif($urlSeg[2]=='taskindeplinite'){
+	}
+	elseif($urlSeg[2]=='taskindeplinite'){
 		require('./pages/taskindeplinite.php');
-	}elseif($urlSeg[2]=='top'){
+	}
+	elseif($urlSeg[2]=='top'){
 		$useri=getUseri();
 		$top=array();
 		if(mysqli_num_rows($useri) > 0){	$i = 0;
@@ -216,9 +269,11 @@
 		usort($top, "cmpTop"); 
 		$activ='top';
 		require('./pages/top.php');
-	}elseif($urlSeg[2]=='p'){
+	}
+	elseif($urlSeg[2]=='p'){
 		require('./p.php');
-	}elseif($urlSeg[2]==''){
+	}
+	elseif($urlSeg[2]==''){
 		$useri=getUseri();
 		$top=array();
 		if(mysqli_num_rows($useri) > 0){	$i = 0;
@@ -232,7 +287,8 @@
 		$insigne=getInsigne();
 		require('./pages/home.php');
 		exit;
-	}else{
+	}
+	else{
 		goHome($base_url);
 	}
 	exit;

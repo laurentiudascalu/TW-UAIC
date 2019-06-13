@@ -485,6 +485,47 @@
 		}
 		return $puncte;
 	}
+	function verificaInsigne($id_user){
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "twuaic";
+
+		// Create connection
+		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Check connection
+		if (!$conn) {
+		    die("Connection failed: " . mysqli_connect_error());
+		    exit;
+		}
+
+		$insigne	= getInsigne();
+		$puncte		= getPuncte($id_user);
+
+		$intrebari  = getIntrebari(-1, $id_user);
+		$intrebari  = mysqli_num_rows($intrebari);
+
+		$raspunsuri = getRaspunsuri(-1, '', -1, -1, 1, $id_user);
+		$raspunsuri = mysqli_num_rows($raspunsuri);
+
+		$raspC  	= getRaspunsuri(-1, '', -1, 1, 1, $id_user);
+		$raspC		= mysqli_num_rows($raspC);
+
+		//echo $intrebari.' '.$raspunsuri.' '.$raspC.' '.$puncte; exit();
+
+		$sql = "UPDATE insigne_leg SET `del`='1' where `id_user`='".$id_user."'";
+		mysqli_query($conn,$sql);
+
+		if(mysqli_num_rows($insigne) >0){
+		    while($row = mysqli_fetch_assoc($insigne)) { 
+		    	if($intrebari >= $row['nr_intrebari'] && $raspunsuri >= $row['nr_raspunsuri'] && $raspC >= $row['nr_rasp_corecte'] && $puncte >= $row['nr_puncte']){
+		    		$sql = "INSERT INTO insigne_leg (`id_insigna`, `id_user`) VALUES ('".$row['id']."', '".$id_user."')";
+					mysqli_query($conn,$sql);
+		    	}
+		    }
+		}
+
+	}
 	function validMail($mail = ''){
 		if(filter_var($mail, FILTER_VALIDATE_EMAIL)){
 			return 1;
